@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d02rc17m7ng27"]
+
+[ext_resource type="PackedScene" uid="uid://bk5a1jikvrc3k" path="res://objects/floor.tscn" id="1_ftt5t"]
+[ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="2_avqwy"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="floor" parent="." instance=ExtResource("1_ftt5t")]
+transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0, 0)
+
+[node name="player" parent="." instance=ExtResource("2_avqwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110423, 1.52364, -0.148572)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.999018, 4.65204e-09, -0.0443169, 0.0191578, 0.901734, 0.431866, 0.0399621, -0.43229, 0.900849, -0.295123, 6.48998, 17.2458)
