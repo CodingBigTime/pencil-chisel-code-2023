@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://d02rc17m7ng27"]
+[gd_scene load_steps=4 format=3 uid="uid://d35dj7smiev8"]
 
 [ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="1_7ud0s"]
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
-[ext_resource type="PackedScene" uid="uid://w8bd5n1p2168" path="res://objects/mountain.tscn" id="3_yenbf"]
+[ext_resource type="PackedScene" uid="uid://chtmp0qxgn4lo" path="res://objects/mountain.tscn" id="3_yenbf"]
 
 [node name="Node3D" type="Node3D"]
 
