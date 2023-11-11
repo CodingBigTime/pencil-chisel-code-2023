@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_1sink"]
 [ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="2_avqwy"]
-[ext_resource type="PackedScene" uid="uid://w8bd5n1p2168" path="res://objects/mountain.tscn" id="2_scjnr"]
+[ext_resource type="PackedScene" path="res://objects/mountain.tscn" id="2_scjnr"]
 
 [sub_resource type="Environment" id="Environment_1vc34"]
 background_mode = 1
@@ -11,10 +11,9 @@ background_color = Color(0, 0, 0.956863, 1)
 [node name="Node3D" type="Node3D"]
 
 [node name="player" parent="." instance=ExtResource("2_avqwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110423, 166.285, 9.21762)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.343, 145.836, 9.21762)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.994522, -0.104528, 0, 0.104528, 0.994522, 0.015337, 26.5638, 167.166)
 script = ExtResource("2_1sink")
 
 [node name="mountain" parent="." instance=ExtResource("2_scjnr")]
