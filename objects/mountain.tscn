@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://w8bd5n1p2168"]
+
+[ext_resource type="PackedScene" uid="uid://js6yij6vmqb2" path="res://assets/mountain.gltf" id="1_mug5d"]
+
+[node name="mountain" instance=ExtResource("1_mug5d")]

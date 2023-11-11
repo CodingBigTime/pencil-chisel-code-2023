@@ -1,6 +1,6 @@
 extends Camera3D
 
-const CAMERA_DISTANCE: float = 16
+const CAMERA_DISTANCE: float = 14
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +19,7 @@ func _process(_delta):
 	var cart_coords = Trigonometry.to_cartasian(polar_coords)
 
 	position.x = cart_coords.x
+	position.y = player_position.y + 2
 	position.z = cart_coords.y
 
 	var camera_angle = Vector2(position.x, position.z).angle()
