@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxmjjpfslwi3x"]
+[gd_scene load_steps=4 format=3 uid="uid://bxmjjpfslwi3x"]
 
 [ext_resource type="Script" path="res://objects/glacier.gd" id="1_wim78"]
+[ext_resource type="PackedScene" uid="uid://ckyy8a370r2a4" path="res://assets/glacier.gltf" id="2_0je6o"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_pvu2j"]
+radius = 0.583855
 
 [node name="Glacier" type="Node3D"]
 script = ExtResource("1_wim78")
@@ -10,7 +12,8 @@ script = ExtResource("1_wim78")
 [node name="RigidBody3D" type="RigidBody3D" parent="." groups=["weapon"]]
 gravity_scale = 2.66454e-15
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="RigidBody3D"]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021719, 0.2617, 0.0124031)
 shape = SubResource("SphereShape3D_pvu2j")
+
+[node name="glacier" parent="RigidBody3D" instance=ExtResource("2_0je6o")]

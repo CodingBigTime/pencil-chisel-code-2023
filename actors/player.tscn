@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://cup6i73gp2txa"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_fkmfk"]
-[ext_resource type="Texture2D" uid="uid://bhmammli76lac" path="res://icon.svg" id="2_knmi1"]
+[ext_resource type="PackedScene" uid="uid://3630s2wnw678" path="res://assets/pingu.gltf" id="2_gi514"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2uu0y"]
-radius = 0.490345
-height = 1.89598
+radius = 0.379941
+height = 1.43327
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11478, 0)
 script = ExtResource("1_fkmfk")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 1.74846e-07, 0, -1.74846e-07, 1, 0, 0, 0)
-texture = ExtResource("2_knmi1")
+[node name="pingu" parent="." instance=ExtResource("2_gi514")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.546664, 0.150256)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00617766, 0.0308895, 0)
 shape = SubResource("CapsuleShape3D_2uu0y")
