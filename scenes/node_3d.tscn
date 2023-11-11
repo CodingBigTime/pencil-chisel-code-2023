@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cupht1m2lnmid"]
+[gd_scene load_steps=3 format=3 uid="uid://pwdebbv58jge"]
 
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_1sink"]
 [ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="2_avqwy"]
-[ext_resource type="PackedScene" uid="uid://chtmp0qxgn4lo" path="res://objects/mountain.tscn" id="2_scjnr"]
+[ext_resource type="PackedScene" uid="uid://w8bd5n1p2168" path="res://objects/mountain.tscn" id="2_scjnr"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -10,7 +10,6 @@
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.343, 145.836, 9.21762)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-current = true
 script = ExtResource("2_1sink")
 
 [node name="mountain" parent="." instance=ExtResource("2_scjnr")]

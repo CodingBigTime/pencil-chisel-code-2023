@@ -1,12 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://d35dj7smiev8"]
+[gd_scene load_steps=6 format=3 uid="uid://bn5r3vutvbkm5"]
 
 [ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="1_7ud0s"]
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
-[ext_resource type="PackedScene" uid="uid://bm0p7153b0a1t" path="res://scenes/terrian.tscn" id="3_ryay8"]
+[ext_resource type="PackedScene" uid="uid://chtmp0qxgn4lo" path="res://objects/mountain.tscn" id="3_yenbf"]
+[ext_resource type="PackedScene" uid="uid://bxmjjpfslwi3x" path="res://objects/glacier.tscn" id="4_f4xd1"]
+[ext_resource type="PackedScene" uid="uid://bm0p7153b0a1t" path="res://scenes/terrian.tscn" id="5_dpvqh"]
 
-[sub_resource type="NavigationMesh" id="NavigationMesh_r40nm"]
-
-[node name="Node3D" type="Node3D"]
+[node name="Map" type="Node3D"]
 
 [node name="player" parent="." instance=ExtResource("1_7ud0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -394.402, 8.35468, -2601.67)
@@ -19,7 +19,10 @@ script = ExtResource("2_nl8p7")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.36272, 0.0504455, -0.930532, 0.0778524, 0.993403, 0.0842005, 0.928641, -0.102985, 0.3564, -49.1771, 28.3303, 15.5855)
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-navigation_mesh = SubResource("NavigationMesh_r40nm")
+[node name="mountain2" parent="." instance=ExtResource("3_yenbf")]
+transform = Transform3D(-2, 3.01992e-07, 0, -3.01992e-07, -2, 0, 0, 0, 2, 5.31634, 170.221, 0.161701)
 
-[node name="Terrian" parent="." instance=ExtResource("3_ryay8")]
+[node name="Glacier" parent="." instance=ExtResource("4_f4xd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.2948, 129.695, 8.14721)
+
+[node name="Terrian" parent="." instance=ExtResource("5_dpvqh")]
