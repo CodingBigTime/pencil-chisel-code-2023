@@ -34,7 +34,5 @@ func _physics_process(delta):
 	for i in range(get_slide_collision_count()):
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
-		print(collider.is_in_group("weapon"))
 		if collider.is_in_group("weapon"):
-			print("Emitting")
-			launch_weapon.emit(collider.name, 10)
+			launch_weapon.emit(collider.get_parent().name, velocity * 3)
