@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d8dfe3703274bfe1301bbea23df30a5d35a1ff0bb3b9b81e7d3c993127e8e22d
-size 1171
+[gd_scene load_steps=5 format=3 uid="uid://d35dj7smiev8"]
+
+[ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="1_7ud0s"]
+[ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
+[ext_resource type="PackedScene" uid="uid://bm0p7153b0a1t" path="res://scenes/terrian.tscn" id="3_ryay8"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_r40nm"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="player" parent="." instance=ExtResource("1_7ud0s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -394.402, 8.35468, -2601.67)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3852, 83.5802, 140.016)
+fov = 151.875
+script = ExtResource("2_nl8p7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.36272, 0.0504455, -0.930532, 0.0778524, 0.993403, 0.0842005, 0.928641, -0.102985, 0.3564, -49.1771, 28.3303, 15.5855)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_r40nm")
+
+[node name="Terrian" parent="." instance=ExtResource("3_ryay8")]
