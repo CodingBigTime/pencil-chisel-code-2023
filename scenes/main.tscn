@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" path="res://objects/mountain.tscn" id="3_yenbf"]
 [ext_resource type="PackedScene" uid="uid://bxmjjpfslwi3x" path="res://objects/glacier.tscn" id="4_f4xd1"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Map" type="Node3D"]
 
 [node name="player" parent="." instance=ExtResource("1_7ud0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.343, 145.836, 9.21762)
@@ -23,5 +23,5 @@ transform = Transform3D(0.36272, 0.0504455, -0.930532, 0.0778524, 0.993403, 0.08
 [node name="mountain2" parent="." instance=ExtResource("3_yenbf")]
 transform = Transform3D(-2, 3.01992e-07, 0, -3.01992e-07, -2, 0, 0, 0, 2, 5.31634, 170.221, 0.161701)
 
-[node name="glacier" parent="." instance=ExtResource("4_f4xd1")]
-transform = Transform3D(0.307471, 0, 0, 0, 0.307471, 0, 0, 0, 0.307471, 24.8362, 121.859, 14.0819)
+[node name="Glacier" parent="." instance=ExtResource("4_f4xd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3333, 126.834, 9.29976)

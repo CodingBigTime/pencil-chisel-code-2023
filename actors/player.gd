@@ -6,6 +6,7 @@ const JUMP_VELOCITY = 4.5
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+signal launch_weapon(weapon_name, launch_strength)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -29,8 +30,11 @@ func _physics_process(delta):
 
 	move_and_slide()
 
-	# # Handle collision
-	# for i in range(get_slide_count()):
-	# 	var collision = get_slide_collision(i)
-	# 	if collision.collider.name == "SpecificObjectName":
-	# 		# Handle the collision with the specific object
+	# Handle collision
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		print(collider.is_in_group("weapon"))
+		if collider.is_in_group("weapon"):
+			print("Emitting")
+			launch_weapon.emit(collider.name, 10)
