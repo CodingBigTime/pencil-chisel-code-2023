@@ -2,8 +2,9 @@ extends CharacterBody3D
 
 signal launch_weapon(weapon_name, launch_strength)
 
-const SPEED = 5.0
+const SPEED = 10.0
 const JUMP_VELOCITY = 4.5
+const LAUNCH_FORCE = 10
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -27,9 +28,9 @@ func _physics_process(delta):
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
-		velocity.x = lerp(velocity.x, 0.0, 0.1)
-		velocity.z = lerp(velocity.z, 0.0, 0.1)
-
+		var lerp_factor = 0.1 * delta * 100
+		velocity.x = lerp(velocity.x, 0.0, lerp_factor)
+		velocity.z = lerp(velocity.z, 0.0, lerp_factor)
 	# Move and slide
 	move_and_slide()
 
@@ -38,4 +39,4 @@ func _physics_process(delta):
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider.is_in_group("weapon"):
-			launch_weapon.emit(collider.get_parent().name, velocity * 3)
+			launch_weapon.emit(collider.get_parent().name, velocity * LAUNCH_FORCE)
