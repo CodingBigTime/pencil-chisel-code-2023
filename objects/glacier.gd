@@ -2,10 +2,11 @@ extends Node3D
 
 var launched = false
 
+
 func _ready():
 	var player_node = get_node_or_null("/root/Map/player")
 	if player_node:
-			player_node.connect("launch_weapon", _launch)
+		player_node.connect("launch_weapon", _launch)
 	else:
 		print("Player node not found")
 
