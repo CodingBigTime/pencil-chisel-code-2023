@@ -42,3 +42,10 @@ static func distance_point_to_segment(
 		t = 1
 	var projection = segment_start + a * t
 	return point.distance_to(projection)
+
+
+static func clamp_vector_3d(vector: Vector3, max_magnitude: float) -> Vector3:
+	var magnitude = vector.length()
+	if magnitude > max_magnitude:
+		return vector * (max_magnitude / magnitude)
+	return vector
