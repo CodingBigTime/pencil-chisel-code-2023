@@ -1,17 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://d02rc17m7ng27"]
+[gd_scene load_steps=5 format=3 uid="uid://d02rc17m7ng27"]
 
-[ext_resource type="PackedScene" uid="uid://bk5a1jikvrc3k" path="res://objects/floor.tscn" id="1_ftt5t"]
+[ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_1sink"]
 [ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="2_avqwy"]
-[ext_resource type="Script" path="res://scenes/Camera3D.gd" id="3_d70yx"]
+[ext_resource type="PackedScene" path="res://objects/mountain.tscn" id="2_scjnr"]
+
+[sub_resource type="Environment" id="Environment_1vc34"]
+background_mode = 1
+background_color = Color(0, 0, 0.956863, 1)
 
 [node name="Node3D" type="Node3D"]
 
-[node name="floor" parent="." instance=ExtResource("1_ftt5t")]
-transform = Transform3D(20, 0, 0, 0, -8.74228e-07, 20, 0, -20, -8.74228e-07, 0, 0, 0)
-
 [node name="player" parent="." instance=ExtResource("2_avqwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110423, 166.285, 9.21762)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0.015337, 8.3435, 15.6799)
-fov = 98.1
-script = ExtResource("3_d70yx")
+transform = Transform3D(1, 0, 0, 0, 0.994522, -0.104528, 0, 0.104528, 0.994522, 0.015337, 26.5638, 167.166)
+script = ExtResource("2_1sink")
+
+[node name="mountain" parent="." instance=ExtResource("2_scjnr")]
+transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.36272, 0.0504455, -0.930532, 0.0778524, 0.993403, 0.0842005, 0.928641, -0.102985, 0.3564, -49.1771, 28.3303, 15.5855)
+
+[node name="mountain2" parent="." instance=ExtResource("2_scjnr")]
+transform = Transform3D(-2, 3.01992e-07, 0, -3.01992e-07, -2, 0, 0, 0, 2, 5.31634, 170.221, 0.161701)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1vc34")
