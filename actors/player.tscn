@@ -15,5 +15,5 @@ script = ExtResource("1_fkmfk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.546664, 0.150256)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00617766, 0.0308895, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00617766, 0.156832, 0)
 shape = SubResource("CapsuleShape3D_2uu0y")
