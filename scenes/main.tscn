@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://d02rc17m7ng27"]
+[gd_scene load_steps=5 format=3 uid="uid://dad5je0e0l2rk"]
 
 [ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="1_7ud0s"]
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
-[ext_resource type="PackedScene" uid="uid://w8bd5n1p2168" path="res://objects/mountain.tscn" id="3_yenbf"]
+[ext_resource type="PackedScene" path="res://objects/mountain.tscn" id="3_yenbf"]
+[ext_resource type="PackedScene" uid="uid://bxmjjpfslwi3x" path="res://objects/glacier.tscn" id="4_f4xd1"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Map" type="Node3D"]
 
 [node name="player" parent="." instance=ExtResource("1_7ud0s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.343, 145.836, 9.21762)
 
 [node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.4948, 0)
 script = ExtResource("2_nl8p7")
 
 [node name="mountain" parent="." instance=ExtResource("3_yenbf")]
@@ -20,3 +22,9 @@ transform = Transform3D(0.36272, 0.0504455, -0.930532, 0.0778524, 0.993403, 0.08
 
 [node name="mountain2" parent="." instance=ExtResource("3_yenbf")]
 transform = Transform3D(-2, 3.01992e-07, 0, -3.01992e-07, -2, 0, 0, 0, 2, 5.31634, 170.221, 0.161701)
+
+[node name="Glacier" parent="." instance=ExtResource("4_f4xd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3333, 126.834, 9.29976)
+
+[node name="Glacier2" parent="." instance=ExtResource("4_f4xd1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3759, 126.798, 5.98898)
