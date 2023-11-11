@@ -28,3 +28,9 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+	# # Handle collision
+	# for i in range(get_slide_count()):
+	# 	var collision = get_slide_collision(i)
+	# 	if collision.collider.name == "SpecificObjectName":
+	# 		# Handle the collision with the specific object
