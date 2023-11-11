@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://0cy7htlt00s6"]
+
+[ext_resource type="Script" path="res://scenes/MainMenu.gd" id="1_d0guk"]
+[ext_resource type="Texture2D" uid="uid://cyrlccn34qbgx" path="res://assets/ui/background.png" id="3_ycbwy"]
+[ext_resource type="Texture2D" uid="uid://cvaryjoqyns3q" path="res://assets/ui/buttons/start_button_normal.png" id="4_n8sfc"]
+[ext_resource type="Texture2D" uid="uid://bb44lytpdej88" path="res://assets/ui/buttons/start_button_pressed.png" id="5_h4sde"]
+[ext_resource type="Texture2D" uid="uid://d1omto5uuatjl" path="res://assets/ui/buttons/start_button_hover.png" id="6_5e82i"]
+[ext_resource type="Texture2D" uid="uid://c0ja4br2myjm1" path="res://assets/ui/buttons/exit_button_normal.png" id="10_p4v6u"]
+[ext_resource type="Texture2D" uid="uid://devt8qijam78x" path="res://assets/ui/buttons/exit_button_pressed.png" id="11_yoe3l"]
+[ext_resource type="Texture2D" uid="uid://dy5y5l14xceox" path="res://assets/ui/buttons/exit_button_hover.png" id="12_ndsnx"]
+[ext_resource type="Texture2D" uid="uid://vf45l2efh1tj" path="res://assets/ui/logo.png" id="14_0piw8"]
+[ext_resource type="AudioStream" uid="uid://bm6bcuvl2fmgq" path="res://assets/sfx/button_press.wav" id="24_t417x"]
+[ext_resource type="AudioStream" uid="uid://clj6pfdgfrud7" path="res://assets/sfx/button_release.wav" id="25_q671y"]
+
+[node name="Control" type="Control"]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+script = ExtResource("1_d0guk")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+rotation = -0.000531537
+texture = ExtResource("3_ycbwy")
+
+[node name="HomeMenu" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_right = 80
+
+[node name="HSplitContainer" type="HSplitContainer" parent="HomeMenu"]
+layout_mode = 2
+collapsed = true
+dragger_visibility = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HomeMenu/HSplitContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HomeMenu/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="StartButton" type="TextureButton" parent="HomeMenu/HSplitContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_n8sfc")
+texture_pressed = ExtResource("5_h4sde")
+texture_hover = ExtResource("6_5e82i")
+
+[node name="ExitButton" type="TextureButton" parent="HomeMenu/HSplitContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("10_p4v6u")
+texture_pressed = ExtResource("11_yoe3l")
+texture_hover = ExtResource("12_ndsnx")
+
+[node name="Label2" type="Label" parent="HomeMenu/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+text = "Pencil Chisel Code 2023"
+
+[node name="CenterContainer" type="CenterContainer" parent="HomeMenu/HSplitContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HomeMenu/HSplitContainer/CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="logo" type="TextureRect" parent="HomeMenu/HSplitContainer/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+texture = ExtResource("14_0piw8")
+stretch_mode = 5
+
+[node name="ButtonDownSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("24_t417x")
+
+[node name="ButtonUpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_q671y")
+
+[connection signal="button_down" from="HomeMenu/HSplitContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_button_down"]
+[connection signal="button_up" from="HomeMenu/HSplitContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_button_up"]
+[connection signal="pressed" from="HomeMenu/HSplitContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="button_down" from="HomeMenu/HSplitContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_button_down"]
+[connection signal="button_up" from="HomeMenu/HSplitContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_button_up"]
+[connection signal="pressed" from="HomeMenu/HSplitContainer/VBoxContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
