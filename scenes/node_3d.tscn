@@ -11,10 +11,9 @@ background_color = Color(0, 0, 0.956863, 1)
 [node name="Node3D" type="Node3D"]
 
 [node name="player" parent="." instance=ExtResource("2_avqwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.110423, 166.285, 9.21762)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.343, 145.836, 9.21762)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.994522, -0.104528, 0, 0.104528, 0.994522, 0.015337, 26.5638, 167.166)
 script = ExtResource("2_1sink")
 
 [node name="mountain" parent="." instance=ExtResource("2_scjnr")]
