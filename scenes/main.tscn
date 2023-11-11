@@ -18,7 +18,13 @@ script = ExtResource("2_nl8p7")
 transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 20, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.36272, 0.0504455, -0.930532, 0.0778524, 0.993403, 0.0842005, 0.928641, -0.102985, 0.3564, -49.1771, 28.3303, 15.5855)
+transform = Transform3D(0.36272, 0.0504454, -0.930532, 0.0778524, 0.993403, 0.0842004, 0.928641, -0.102985, 0.3564, -49.1771, 183.856, 15.5855)
+light_angular_distance = 2.0
+light_bake_mode = 1
+shadow_enabled = true
+shadow_bias = 0.2
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 1.0
 
 [node name="mountain2" parent="." instance=ExtResource("3_yenbf")]
 transform = Transform3D(-2, 3.01992e-07, 0, -3.01992e-07, -2, 0, 0, 0, 2, 5.31634, 170.221, 0.161701)
