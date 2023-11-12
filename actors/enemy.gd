@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const TIME_PER_ACTION = 8000
-const DISTANCE = 400  #This is distance squared
+const DISTANCE = 1000  #This is distance squared
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
