@@ -8,9 +8,9 @@ signal die
 
 signal player_position_changed(position: Vector3)
 
-const BOOST_SPEED = 10
-const LAUNCH_FORCE = 2
-const ROTATION_SPEED = 4.5
+const BOOST_SPEED = 7
+const LAUNCH_FORCE = 0.7
+const ROTATION_SPEED = 5
 const MAX_VELOCITY = 100.0
 
 @export var starting_boost_count: int = 0
