@@ -9,7 +9,7 @@ func _ready():
 
 func update_score(new_score: int):
 	score = new_score
-	# get_tree().get_root().find_child("BestScoreLabel", true, false).submit_new_score(score)
+	GlobalState.submit_new_score(score)
 	text = "Score: " + str(score)
 
 
