@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cup6i73gp2txa"]
+[gd_scene load_steps=8 format=3 uid="uid://cup6i73gp2txa"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_fkmfk"]
 [ext_resource type="PackedScene" uid="uid://dwxinhipuxcsq" path="res://assets/pingu_2.gltf" id="2_i8x48"]
@@ -9,6 +9,27 @@ friction = 0.0
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2uu0y"]
 radius = 0.379941
 height = 1.574
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v2sb5"]
+lifetime_randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 0, 1)
+spread = 9.65
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mb30p"]
+resource_local_to_scene = true
+transparency = 1
+albedo_color = Color(0.396078, 0.780392, 0.882353, 1)
+heightmap_enabled = true
+heightmap_scale = 0.845
+
+[sub_resource type="BoxMesh" id="BoxMesh_oqkbr"]
+material = SubResource("StandardMaterial3D_mb30p")
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Player" type="RigidBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11478, 0)
@@ -46,5 +67,12 @@ target_position = Vector3(0, -0.75, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00617766, 0.156832, 0)
 shape = SubResource("CapsuleShape3D_2uu0y")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+lifetime = 1.1
+visibility_aabb = AABB(-40, -40, -40, 80, 80, 80)
+trail_lifetime = 1.1
+process_material = SubResource("ParticleProcessMaterial_v2sb5")
+draw_pass_1 = SubResource("BoxMesh_oqkbr")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
