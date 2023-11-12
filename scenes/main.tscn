@@ -6,13 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://bmqcocleh68ms" path="res://objects/spawners/spawner.tscn" id="3_xi66a"]
 [ext_resource type="PackedScene" uid="uid://b54oqd74o7jyk" path="res://assets/map7.glb" id="4_4337f"]
 [ext_resource type="Script" path="res://objects/spawners/periodic_spawner.gd" id="4_b5dko"]
-[ext_resource type="PackedScene" uid="uid://dn1acga816cwk" path="res://actors/enemy.tscn" id="4_g7cr1"]
 [ext_resource type="PackedScene" uid="uid://cn6lce1nym2nc" path="res://scenes/ui/main_ui.tscn" id="5_hp1v1"]
 [ext_resource type="PackedScene" uid="uid://0e5lvk8aogo1" path="res://assets/tower.gltf" id="8_he10b"]
 [ext_resource type="Texture2D" uid="uid://ch1urjux36k1l" path="res://assets/eye.png" id="9_oe0qq"]
 [ext_resource type="AudioStream" uid="uid://dmf3b3ra84idr" path="res://assets/sfx/bgm.mp3" id="10_alopi"]
 [ext_resource type="Script" path="res://scenes/trees.gd" id="12_yu1yo"]
 [ext_resource type="Script" path="res://objects/spawners/instant_spawner.gd" id="13_qygkj"]
+[ext_resource type="Script" path="res://scenes/enemies.gd" id="14_3dv4x"]
 [ext_resource type="Script" path="res://scenes/glaciers.gd" id="14_7bx01"]
 [ext_resource type="PackedScene" uid="uid://diwkcvyk3e2v2" path="res://objects/boost.tscn" id="15_j0yn8"]
 
@@ -89,11 +89,15 @@ transform = Transform3D(1, 3.02311e-09, -4.40691e-10, -2.23539e-11, 1, -1.24232e
 starting_boost_count = 20
 
 [node name="spawners" type="Node3D" parent="player"]
-transform = Transform3D(1, -1.25397e-09, 3.49246e-10, 3.41061e-13, 1, 0, 0, 6.40284e-10, 1, -51.9589, 8.24054, -5.68837)
+transform = Transform3D(1, -1.25397e-09, 3.49246e-10, 3.41061e-13, 1, 0, 0, 6.40284e-10, 1, 0, 0, 0)
 script = SubResource("GDScript_1wg7g")
 
-[node name="spawner" parent="player/spawners" instance=ExtResource("3_xi66a")]
+[node name="enemy_spawner" parent="player/spawners" instance=ExtResource("3_xi66a")]
 script = ExtResource("4_b5dko")
+spawn_period = 0.1
+min_distance = 30.0
+max_distance = 60.0
+height = 20.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 7.25549e-10, 1.07102e-08, 2.33399e-10, 1, 1.22236e-08, 0, -4.07454e-10, 1, -0.874826, 26.6851, -0.0629961)
@@ -166,11 +170,12 @@ spawn_count = 100
 min_distance = 40.0
 max_distance = 160.0
 
-[node name="Enemy" parent="." instance=ExtResource("4_g7cr1")]
-transform = Transform3D(1, 2.70575e-09, -2.67755e-09, 3.41061e-13, 1, 0, 0, -1.33878e-09, 1, 34.9418, -14.1823, 18.9793)
+[node name="enemies" type="Node3D" parent="."]
+script = ExtResource("14_3dv4x")
 
 [node name="boost" parent="." instance=ExtResource("15_j0yn8")]
 transform = Transform3D(1, 5.76532e-10, 2.49698e-11, -2.23539e-11, 1, -1.24232e-11, 1.1314e-11, -2.96551e-10, 1, 45.4869, -13.4737, 5.33563)
 
+[connection signal="spawn" from="player/spawners/enemy_spawner" to="enemies" method="spawn_enemy"]
 [connection signal="spawn" from="tree_spawner" to="trees" method="spawn_tree"]
 [connection signal="spawn" from="glacier_spawner" to="glaciers" method="spawn_glacier"]
