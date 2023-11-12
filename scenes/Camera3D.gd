@@ -27,7 +27,7 @@ func follow_player(delta):
 	var cart_coords = Trigonometry.to_cartasian(polar_coords)
 
 	target_position.x = cart_coords.x
-	target_position.y = player_position.y + 2
+	target_position.y = player_position.y + 0
 	target_position.z = cart_coords.y
 
 	var camera_angle = Vector2(position.x, position.z).angle()
