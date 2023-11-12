@@ -8,11 +8,10 @@ signal die
 
 signal player_position_changed(position: Vector3)
 
-const BOOST_SPEED = 5.0
-const LAUNCH_FORCE = 3
-const ROTATION_SPEED = 4
+const BOOST_SPEED = 10
+const LAUNCH_FORCE = 2
+const ROTATION_SPEED = 4.5
 const MAX_VELOCITY = 100.0
-const TERMINAL_VELOCITY = 20.0
 
 @export var starting_boost_count: int = 0
 var starting_position: Vector3
@@ -107,6 +106,7 @@ func _physics_process(delta: float):
 
 	if $RayCast3D_far.is_colliding():
 		position.y = lerp(position.y, $RayCast3D_far.get_collision_point().y + 0.05, 0.1)
+		linear_velocity.x += 0.1
 
 		if $RayCast3D_close.is_colliding():
 			# rotate $pingu to be normal to the surface, use rotation.y as well
