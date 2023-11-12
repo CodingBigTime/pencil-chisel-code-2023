@@ -1,44 +1,40 @@
+class_name Enemy
 extends CharacterBody3D
 
 const SPEED = 5.0
-const TIME_PER_ACTION = 8000
-const DISTANCE = 5  #This is distance squared
+const TIME_PER_ACTION = 4.0
+const DISTANCE = 1000  #This is distance squared
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var player_position_global: Vector3
+var player_position: Vector3
+var direction: Vector3
 
-var time_since_last_action_pick = 0
+var time_since_last_action_pick: float = 0.0
 var random_direction = Vector3.ZERO
 
 
-func update_player_position(position: Vector3):
-	player_position_global = position
+func update_player_position(pos: Vector3):
+	player_position = pos
 
 
-func _ready():
-	add_to_group("enemies")
-
-
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
-	var distance = global_position.distance_squared_to(player_position_global)
+	var distance = position.distance_squared_to(player_position)
 
 	if distance < DISTANCE:
-		var direction = global_position.direction_to(player_position_global)
-		velocity.x = direction.x * SPEED
-		velocity.z = direction.z * SPEED
+		direction = position.direction_to(player_position)
 	else:
-		delta += time_since_last_action_pick
+		time_since_last_action_pick += delta
 		if time_since_last_action_pick > TIME_PER_ACTION:
-			random_direction.x = randf()
-			random_direction.y = randf()
-			time_since_last_action_pick = 0
-		velocity.x = random_direction.x * SPEED
-		velocity.z = random_direction.y * SPEED
+			time_since_last_action_pick -= TIME_PER_ACTION
+			direction.x = randf()
+			direction.z = randf()
+	velocity.x = direction.x * SPEED
+	velocity.z = direction.z * SPEED
 
 	move_and_slide()

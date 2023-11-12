@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dn1acga816cwk"]
+[gd_scene load_steps=10 format=3 uid="uid://bs874u23dhorv"]
 
 [ext_resource type="Script" path="res://actors/enemy.gd" id="1_cqyxv"]
 
@@ -50,6 +50,8 @@ size = Vector3(0.2, 0.2, 0.2)
 [node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
 process_priority = 1
 floor_constant_speed = true
+floor_max_angle = 1.0472
+floor_snap_length = 5.0
 script = ExtResource("1_cqyxv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
