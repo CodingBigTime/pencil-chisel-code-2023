@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dxjw1mwn4i5cu"]
+[gd_scene load_steps=25 format=3 uid="uid://dxjw1mwn4i5cu"]
 
 [ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="1_7ud0s"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_dxlqq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scenes/trees.gd" id="12_yu1yo"]
 [ext_resource type="Script" path="res://objects/spawners/instant_spawner.gd" id="13_qygkj"]
 [ext_resource type="Script" path="res://scenes/glaciers.gd" id="14_7bx01"]
+[ext_resource type="PackedScene" uid="uid://32004prnxbjg" path="res://objects/boost.tscn" id="15_j0yn8"]
 
 [sub_resource type="GDScript" id="GDScript_1wg7g"]
 script/source = "extends Spawner
@@ -167,6 +168,9 @@ max_distance = 160.0
 
 [node name="Enemy" parent="." instance=ExtResource("4_g7cr1")]
 transform = Transform3D(1, 2.70575e-09, -2.67755e-09, 3.41061e-13, 1, 0, 0, -1.33878e-09, 1, 34.9418, -14.1823, 18.9793)
+
+[node name="boost" parent="." instance=ExtResource("15_j0yn8")]
+transform = Transform3D(1, 5.76532e-10, 2.49698e-11, -2.23539e-11, 1, -1.24232e-11, 1.1314e-11, -2.96551e-10, 1, 45.4869, -13.4737, 5.33563)
 
 [connection signal="spawn" from="tree_spawner" to="trees" method="spawn_tree"]
 [connection signal="spawn" from="glacier_spawner" to="glaciers" method="spawn_glacier"]
