@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://1osj1akvct7c"]
+[gd_scene load_steps=5 format=3 uid="uid://diwkcvyk3e2v2"]
 
 [ext_resource type="Script" path="res://objects/boost.gd" id="1_n3r86"]
 
@@ -17,7 +17,7 @@ emission_enabled = true
 emission = Color(0, 1.6, 0.3, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_teicj"]
-radius = 1.5
+radius = 1.72634
 
 [node name="boost" type="RigidBody3D"]
 axis_lock_linear_x = true
