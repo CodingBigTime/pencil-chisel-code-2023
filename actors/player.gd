@@ -105,6 +105,8 @@ func _physics_process(delta: float):
 	linear_velocity.x = velocity_xz_clamped.x
 	linear_velocity.z = velocity_xz_clamped.y
 
+	do_particles(linear_velocity.x, linear_velocity.z)
+
 	if $RayCast3D_far.is_colliding():
 		position.y = lerp(position.y, $RayCast3D_far.get_collision_point().y + 0.05, 0.1)
 
@@ -115,6 +117,21 @@ func _physics_process(delta: float):
 				$pingu.global_transform, collision_normal
 			)
 			$pingu.rotation.y = 0
+
+
+func do_particles(l_x, l_z):
+	var total_velocity = abs(l_x) + abs(l_z)
+	if total_velocity < 2:
+		$GPUParticles3D.emitting = false
+	elif total_velocity > 2 and total_velocity < 5:
+		$GPUParticles3D.emitting = true
+		$GPUParticles3D.amount = 10
+	elif total_velocity > 5 and total_velocity < 10:
+		$GPUParticles3D.emitting = true
+		$GPUParticles3D.amount = 40
+	elif total_velocity > 10:
+		$GPUParticles3D.emitting = true
+		$GPUParticles3D.amount = 80
 
 
 func _on_body_entered(body: Node):
