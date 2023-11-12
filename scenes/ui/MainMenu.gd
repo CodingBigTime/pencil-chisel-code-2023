@@ -13,7 +13,7 @@ func _on_exit_button_pressed():
 	get_tree().quit()
 
 
-func _on_button_down():
+func _on_butremove_meta():
 	$ButtonDownSFX.play()
 
 

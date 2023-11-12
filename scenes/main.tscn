@@ -1,11 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://2w6yakjowypx"]
+[gd_scene load_steps=16 format=3 uid="uid://dxjw1mwn4i5cu"]
 
 [ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="1_7ud0s"]
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_dxlqq"]
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
-
 [ext_resource type="PackedScene" uid="uid://b54oqd74o7jyk" path="res://assets/map7.glb" id="4_4337f"]
-[ext_resource type="PackedScene" uid="uid://dn1acga816cwk" path="res://actors/enemy.tscn" id="4_g7cr1"]
-[ext_resource type="PackedScene" uid="uid://cyhcfsvkd2wxc" path="res://objects/glacier.tscn" id="4_f4xd1"]
+[ext_resource type="PackedScene" uid="uid://bxmjjpfslwi3x" path="res://objects/glacier.tscn" id="4_f4xd1"]
+[ext_resource type="PackedScene" path="res://actors/enemy.tscn" id="4_g7cr1"]
+[ext_resource type="PackedScene" uid="uid://cn6lce1nym2nc" path="res://scenes/ui/main_ui.tscn" id="5_hp1v1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h6sp0"]
 sky_top_color = Color(0.47451, 0.635294, 0.639216, 1)
@@ -52,11 +53,15 @@ sections = 2
 section_length = 0.1
 curve = SubResource("Curve_qdmuy")
 
+[sub_resource type="GDScript" id="GDScript_gull0"]
+
 [node name="Map" type="Node3D"]
 transform = Transform3D(0.999998, -0.00142493, 0.00151929, 0.00142608, 0.999999, -0.000756879, -0.00151822, 0.000759032, 0.999999, 0, 0, 0)
+script = ExtResource("1_dxlqq")
 
 [node name="player" parent="." instance=ExtResource("1_7ud0s")]
 transform = Transform3D(1, 9.26043e-10, 2.49698e-11, -2.23539e-11, 1, -1.24232e-11, 1.1314e-11, -4.71173e-10, 1, 18.343, 133.725, 5.52958)
+starting_boost_count = 5
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 7.25549e-10, 1.07102e-08, 2.33399e-10, 1, 1.22236e-08, 0, -4.07454e-10, 1, -0.874826, 26.6851, -0.0629961)
@@ -95,3 +100,6 @@ transform = Transform3D(1, 2.59206e-10, -2.32831e-10, 3.41061e-13, 1, 0, 0, -1.1
 
 [node name="map" parent="." instance=ExtResource("4_4337f")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="main_ui" parent="." instance=ExtResource("5_hp1v1")]
+script = SubResource("GDScript_gull0")

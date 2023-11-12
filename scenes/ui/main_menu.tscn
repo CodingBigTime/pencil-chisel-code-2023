@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://0cy7htlt00s6"]
+[gd_scene load_steps=13 format=3 uid="uid://0cy7htlt00s6"]
 
-[ext_resource type="Script" path="res://scenes/MainMenu.gd" id="1_d0guk"]
-[ext_resource type="Texture2D" uid="uid://cyrlccn34qbgx" path="res://assets/ui/background.png" id="3_ycbwy"]
-[ext_resource type="Texture2D" uid="uid://cvaryjoqyns3q" path="res://assets/ui/buttons/start_button_normal.png" id="4_n8sfc"]
-[ext_resource type="Texture2D" uid="uid://bb44lytpdej88" path="res://assets/ui/buttons/start_button_pressed.png" id="5_h4sde"]
-[ext_resource type="Texture2D" uid="uid://d1omto5uuatjl" path="res://assets/ui/buttons/start_button_hover.png" id="6_5e82i"]
-[ext_resource type="Texture2D" uid="uid://c0ja4br2myjm1" path="res://assets/ui/buttons/exit_button_normal.png" id="10_p4v6u"]
-[ext_resource type="Texture2D" uid="uid://devt8qijam78x" path="res://assets/ui/buttons/exit_button_pressed.png" id="11_yoe3l"]
-[ext_resource type="Texture2D" uid="uid://dy5y5l14xceox" path="res://assets/ui/buttons/exit_button_hover.png" id="12_ndsnx"]
-[ext_resource type="Texture2D" uid="uid://vf45l2efh1tj" path="res://assets/ui/logo.png" id="14_0piw8"]
-[ext_resource type="AudioStream" uid="uid://bm6bcuvl2fmgq" path="res://assets/sfx/button_press.wav" id="24_t417x"]
-[ext_resource type="AudioStream" uid="uid://clj6pfdgfrud7" path="res://assets/sfx/button_release.wav" id="25_q671y"]
+[ext_resource type="Script" path="res://scenes/ui/MainMenu.gd" id="1_e888i"]
+[ext_resource type="Texture2D" uid="uid://cyrlccn34qbgx" path="res://assets/ui/background.png" id="2_aa2d2"]
+[ext_resource type="Texture2D" uid="uid://cvaryjoqyns3q" path="res://assets/ui/buttons/start_button_normal.png" id="3_f7byy"]
+[ext_resource type="Texture2D" uid="uid://bb44lytpdej88" path="res://assets/ui/buttons/start_button_pressed.png" id="4_tpkhw"]
+[ext_resource type="Texture2D" uid="uid://d1omto5uuatjl" path="res://assets/ui/buttons/start_button_hover.png" id="5_44btw"]
+[ext_resource type="Texture2D" uid="uid://c0ja4br2myjm1" path="res://assets/ui/buttons/exit_button_normal.png" id="6_rr77v"]
+[ext_resource type="Texture2D" uid="uid://devt8qijam78x" path="res://assets/ui/buttons/exit_button_pressed.png" id="7_igl8u"]
+[ext_resource type="Texture2D" uid="uid://dy5y5l14xceox" path="res://assets/ui/buttons/exit_button_hover.png" id="8_3rgo3"]
+[ext_resource type="Script" path="res://scenes/ui/best_score_label.gd" id="9_i60lb"]
+[ext_resource type="Texture2D" uid="uid://vf45l2efh1tj" path="res://assets/ui/logo.png" id="9_mtwnh"]
+[ext_resource type="AudioStream" uid="uid://bm6bcuvl2fmgq" path="res://assets/sfx/button_press.wav" id="10_nue65"]
+[ext_resource type="AudioStream" uid="uid://clj6pfdgfrud7" path="res://assets/sfx/button_release.wav" id="11_gbt1v"]
 
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(1920, 1080)
@@ -18,12 +19,12 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-script = ExtResource("1_d0guk")
+script = ExtResource("1_e888i")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
-texture = ExtResource("3_ycbwy")
+texture = ExtResource("2_aa2d2")
 
 [node name="HomeMenu" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -49,19 +50,23 @@ size_flags_horizontal = 0
 
 [node name="StartButton" type="TextureButton" parent="HomeMenu/HSplitContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_n8sfc")
-texture_pressed = ExtResource("5_h4sde")
-texture_hover = ExtResource("6_5e82i")
+texture_normal = ExtResource("3_f7byy")
+texture_pressed = ExtResource("4_tpkhw")
+texture_hover = ExtResource("5_44btw")
 
 [node name="ExitButton" type="TextureButton" parent="HomeMenu/HSplitContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("10_p4v6u")
-texture_pressed = ExtResource("11_yoe3l")
-texture_hover = ExtResource("12_ndsnx")
+texture_normal = ExtResource("6_rr77v")
+texture_pressed = ExtResource("7_igl8u")
+texture_hover = ExtResource("8_3rgo3")
 
 [node name="Label2" type="Label" parent="HomeMenu/HSplitContainer/VBoxContainer"]
 layout_mode = 2
 text = "Pencil Chisel Code 2023"
+
+[node name="best_score_label" type="Label" parent="HomeMenu/HSplitContainer/VBoxContainer"]
+layout_mode = 2
+script = ExtResource("9_i60lb")
 
 [node name="CenterContainer" type="CenterContainer" parent="HomeMenu/HSplitContainer"]
 layout_mode = 2
@@ -73,14 +78,14 @@ alignment = 1
 [node name="logo" type="TextureRect" parent="HomeMenu/HSplitContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
-texture = ExtResource("14_0piw8")
+texture = ExtResource("9_mtwnh")
 stretch_mode = 5
 
 [node name="ButtonDownSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("24_t417x")
+stream = ExtResource("10_nue65")
 
 [node name="ButtonUpSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("25_q671y")
+stream = ExtResource("11_gbt1v")
 
 [connection signal="button_down" from="HomeMenu/HSplitContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_button_down"]
 [connection signal="button_up" from="HomeMenu/HSplitContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_button_up"]
