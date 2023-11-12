@@ -1,10 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dn1acga816cwk"]
+[gd_scene load_steps=4 format=3 uid="uid://dn1acga816cwk"]
 
+[ext_resource type="Script" path="res://actors/enemy.gd" id="1_cqyxv"]
 [ext_resource type="Texture2D" uid="uid://16ewb8qmwe12" path="res://actors/icon.svg" id="1_irwbw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npats"]
 
 [node name="Enemy" type="CharacterBody3D"]
+floor_constant_speed = true
+script = ExtResource("1_cqyxv")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
 billboard = 1

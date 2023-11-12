@@ -40,4 +40,4 @@ spot_angle = 17.2881
 target_position = Vector3(2.08165e-12, -50, 2.08165e-12)
 
 [node name="RayCast3D_close" type="RayCast3D" parent="."]
-target_position = Vector3(2.08165e-12, -0.5, 2.08165e-12)
+target_position = Vector3(0, -0.75, 0)

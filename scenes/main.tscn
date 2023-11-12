@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
 [ext_resource type="PackedScene" uid="uid://b54oqd74o7jyk" path="res://assets/map7.glb" id="4_4337f"]
 [ext_resource type="PackedScene" uid="uid://cyhcfsvkd2wxc" path="res://objects/glacier.tscn" id="4_f4xd1"]
-[ext_resource type="PackedScene" path="res://actors/enemy.tscn" id="4_g7cr1"]
+[ext_resource type="PackedScene" uid="uid://dn1acga816cwk" path="res://actors/enemy.tscn" id="4_g7cr1"]
 [ext_resource type="PackedScene" uid="uid://cn6lce1nym2nc" path="res://scenes/ui/main_ui.tscn" id="5_hp1v1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h6sp0"]
@@ -60,8 +60,8 @@ transform = Transform3D(0.999998, -0.00142493, 0.00151929, 0.00142608, 0.999999,
 script = ExtResource("1_dxlqq")
 
 [node name="player" parent="." instance=ExtResource("1_7ud0s")]
-transform = Transform3D(1, 9.26043e-10, 2.49698e-11, -2.23539e-11, 1, -1.24232e-11, 1.1314e-11, -4.71173e-10, 1, 18.343, 133.725, 5.52958)
-starting_boost_count = 5
+transform = Transform3D(1, 1.42427e-09, -4.65661e-10, 3.41061e-13, 1, 0, 0, -6.98492e-10, 1, 51.9589, -8.24054, 5.68837)
+starting_boost_count = 20
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 7.25549e-10, 1.07102e-08, 2.33399e-10, 1, 1.22236e-08, 0, -4.07454e-10, 1, -0.874826, 26.6851, -0.0629961)
@@ -96,7 +96,7 @@ process_material = SubResource("ParticleProcessMaterial_bgh5k")
 draw_pass_1 = SubResource("RibbonTrailMesh_a8buv")
 
 [node name="Enemy" parent="." instance=ExtResource("4_g7cr1")]
-transform = Transform3D(1, 2.59206e-10, -2.32831e-10, 3.41061e-13, 1, 0, 0, -1.16415e-10, 1, 37.8002, 6.96173, 0.0521049)
+transform = Transform3D(1, 1.42427e-09, -1.39698e-09, 3.41061e-13, 1, 0, 0, -6.98492e-10, 1, 42.2821, -11.4419, 0.629103)
 
 [node name="map" parent="." instance=ExtResource("4_4337f")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)

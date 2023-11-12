@@ -6,6 +6,8 @@ signal boost_count_changed(new_value)
 signal increase_score(amount)
 signal die
 
+signal player_position_changed(position: Vector3)
+
 const BOOST_SPEED = 5.0
 const LAUNCH_FORCE = 3
 const ROTATION_SPEED = 2.5
@@ -39,6 +41,8 @@ func boost():
 
 
 func _physics_process(delta: float):
+	get_tree().call_group("enemies", "update_player_position", global_position)
+  
 	if Input.is_action_just_pressed("suicide"):
 		die.emit()
 
@@ -73,12 +77,12 @@ func _physics_process(delta: float):
 	linear_velocity.z = velocity_xz_clamped.y
 
 	if $RayCast3D_far.is_colliding():
-		# rotate $pingu to be normal to the surface, use rotation.y as well
-		var collision_normal: Vector3 = $RayCast3D_far.get_collision_normal()
-		$pingu.global_transform = Trigonometry.align_with_y(
-			$pingu.global_transform, collision_normal
-		)
-		$pingu.rotation.y = 0
+		position.y = lerp(position.y, $RayCast3D_far.get_collision_point().y + 0.05, 0.1)
 
-		if not $RayCast3D_close.is_colliding():
-			position.y = lerp(position.y, $RayCast3D_far.get_collision_point().y + 0.05, 0.1)
+		if $RayCast3D_close.is_colliding():
+			# rotate $pingu to be normal to the surface, use rotation.y as well
+			var collision_normal: Vector3 = $RayCast3D_far.get_collision_normal()
+			$pingu.global_transform = Trigonometry.align_with_y(
+				$pingu.global_transform, collision_normal
+			)
+			$pingu.rotation.y = 0
