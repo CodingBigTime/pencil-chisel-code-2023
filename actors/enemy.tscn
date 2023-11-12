@@ -70,6 +70,7 @@ draw_pass_1 = SubResource("BoxMesh_6o4fx")
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
 amount = 50
 lifetime = 0.3
+explosiveness = 0.5
 randomness = 1.0
 process_material = SubResource("ParticleProcessMaterial_7egev")
 draw_pass_1 = SubResource("BoxMesh_r600b")
