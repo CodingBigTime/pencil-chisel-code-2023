@@ -13,6 +13,7 @@ var direction: Vector3
 
 var time_since_last_action_pick: float = 0.0
 var random_direction = Vector3.ZERO
+var fire_explosion = preload("res://objects/firexplosion.tscn")
 
 
 func update_player_position(pos: Vector3):
@@ -38,3 +39,10 @@ func _physics_process(delta: float) -> void:
 	velocity.z = direction.z * SPEED
 
 	move_and_slide()
+
+
+func explode():
+	var explosion = fire_explosion.instantiate()
+	explosion.position = position
+	get_parent().add_child(explosion)
+	explosion.explode()

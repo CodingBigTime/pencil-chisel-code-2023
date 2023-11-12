@@ -54,5 +54,6 @@ func explode():
 	var overlapping_bodies = $Area3D.get_overlapping_bodies()
 	for body in overlapping_bodies:
 		if body.is_in_group("enemy"):
+			body.explode()
 			body.queue_free()
 			enemy_killed.emit()
