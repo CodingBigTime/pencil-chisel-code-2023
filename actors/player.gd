@@ -33,8 +33,8 @@ func _ready():
 	boost_count_changed.emit(boost_count)
 
 
-func add_boost_count():
-	boost_count += 1
+func add_boost_count(value):
+	boost_count += value
 	boost_count_changed.emit(boost_count)
 
 
