@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0cy7htlt00s6"]
+[gd_scene load_steps=17 format=3 uid="uid://0cy7htlt00s6"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_sdmyu"]
 [ext_resource type="Texture2D" uid="uid://cyrlccn34qbgx" path="res://assets/ui/background.png" id="2_aa2d2"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://scenes/ui/reset_score_button.gd" id="10_lj26a"]
 [ext_resource type="AudioStream" uid="uid://bm6bcuvl2fmgq" path="res://assets/sfx/button_press.wav" id="10_nue65"]
 [ext_resource type="AudioStream" uid="uid://clj6pfdgfrud7" path="res://assets/sfx/button_release.wav" id="11_gbt1v"]
+[ext_resource type="Texture2D" uid="uid://dpxcecahn7c8q" path="res://assets/game_over.png" id="11_odnwc"]
+[ext_resource type="Script" path="res://scenes/ui/game_over.gd" id="12_toh3p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_f8bl0"]
 font_size = 32
@@ -88,6 +90,14 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="HomeMenu/HSplitContainer/CenterContainer"]
 layout_mode = 2
 alignment = 1
+
+[node name="game_over" type="TextureRect" parent="HomeMenu/HSplitContainer/CenterContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+texture = ExtResource("11_odnwc")
+stretch_mode = 5
+script = ExtResource("12_toh3p")
 
 [node name="logo" type="TextureRect" parent="HomeMenu/HSplitContainer/CenterContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 500)

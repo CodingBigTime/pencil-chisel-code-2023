@@ -5,6 +5,8 @@ var launched = false
 
 func _ready():
 	var player_node = get_node_or_null("/root/Map/player")
+	var timer = $Timer
+	timer.connect("timeout", _on_Timer_timeout)
 	if player_node:
 		player_node.connect("launch_weapon", _launch)
 	else:
@@ -18,7 +20,7 @@ func _launch(collider_name, velocity):
 	launched = true
 	gravity_scale = 1
 	apply_impulse(velocity)
-
+	$Timer.start()
 	var sound_player = AudioStreamPlayer3D.new()
 	sound_player.stream = load("res://assets/sfx/push_ice.wav")
 	add_child(sound_player)
@@ -34,3 +36,7 @@ func _physics_process(_delta: float):
 	if $RayCast3D.is_colliding():
 		var coliding_with = $RayCast3D.get_collision_point().y
 		position.y = lerp(position.y, coliding_with, 0.1)
+
+
+func _on_Timer_timeout():
+	queue_free()

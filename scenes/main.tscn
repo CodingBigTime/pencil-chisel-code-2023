@@ -1,12 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://2w6yakjowypx"]
+[gd_scene load_steps=18 format=3 uid="uid://dxjw1mwn4i5cu"]
 
 [ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="1_7ud0s"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_dxlqq"]
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
 [ext_resource type="PackedScene" uid="uid://b54oqd74o7jyk" path="res://assets/map7.glb" id="4_4337f"]
 [ext_resource type="PackedScene" uid="uid://cyhcfsvkd2wxc" path="res://objects/glacier.tscn" id="4_f4xd1"]
-[ext_resource type="PackedScene" path="res://actors/enemy.tscn" id="4_g7cr1"]
+[ext_resource type="PackedScene" uid="uid://dn1acga816cwk" path="res://actors/enemy.tscn" id="4_g7cr1"]
 [ext_resource type="PackedScene" uid="uid://cn6lce1nym2nc" path="res://scenes/ui/main_ui.tscn" id="5_hp1v1"]
+[ext_resource type="PackedScene" uid="uid://0e5lvk8aogo1" path="res://assets/tower.gltf" id="8_he10b"]
+[ext_resource type="Texture2D" uid="uid://bhmammli76lac" path="res://icon.svg" id="9_i78qh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h6sp0"]
 sky_top_color = Color(0.47451, 0.635294, 0.639216, 1)
@@ -90,7 +92,7 @@ amount = 20000
 lifetime = 3.0
 speed_scale = 0.75
 randomness = 0.71
-visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
+visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
 trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_bgh5k")
 draw_pass_1 = SubResource("RibbonTrailMesh_a8buv")
@@ -103,3 +105,14 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="main_ui" parent="." instance=ExtResource("5_hp1v1")]
 script = SubResource("GDScript_gull0")
+
+[node name="Glacier2" parent="." instance=ExtResource("4_f4xd1")]
+transform = Transform3D(1.29999, 0.0046726, -0.00236246, -0.00467056, 1.29999, 0.00112582, 0.00236649, -0.00111732, 1.3, 44.8099, -17.028, 19.8362)
+
+[node name="tower" parent="." instance=ExtResource("8_he10b")]
+transform = Transform3D(4.98177, -0.00107888, -3.34395, 0.00398305, 6, 0.00399806, 3.34395, -0.00553942, 4.98177, -1.13225, 41.9362, -0.444537)
+
+[node name="Sprite3D" type="Sprite3D" parent="tower"]
+transform = Transform3D(1, -1.66354e-09, 8.93623e-08, 1.66354e-09, 1, -6.54836e-10, -8.93623e-08, 6.54836e-10, 1, 0, 6, 0)
+billboard = 1
+texture = ExtResource("9_i78qh")
