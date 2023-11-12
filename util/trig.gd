@@ -56,3 +56,10 @@ static func clamp_vector_3d(vector: Vector3, max_magnitude: float) -> Vector3:
 	if magnitude > max_magnitude:
 		return vector * (max_magnitude / magnitude)
 	return vector
+
+
+static func align_with_y(xform: Transform3D, new_y: Vector3) -> Transform3D:
+	xform.basis.y = new_y
+	xform.basis.x = -xform.basis.z.cross(new_y)
+	xform.basis = xform.basis.orthonormalized()
+	return xform

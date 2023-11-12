@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cto5hssbufjkt"]
+[gd_scene load_steps=5 format=3 uid="uid://cup6i73gp2txa"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_fkmfk"]
 [ext_resource type="PackedScene" uid="uid://3630s2wnw678" path="res://assets/pingu.gltf" id="2_gi514"]
@@ -8,7 +8,7 @@ friction = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2uu0y"]
 radius = 0.379941
-height = 1.43327
+height = 1.574
 
 [node name="Player" type="RigidBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11478, 0)
@@ -24,6 +24,14 @@ script = ExtResource("1_fkmfk")
 [node name="pingu" parent="." instance=ExtResource("2_gi514")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.546664, 0.150256)
 
+[node name="CSGBox3D" type="CSGBox3D" parent="pingu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22458, -0.036371, -0.231238)
+size = Vector3(0.161704, 0.0758256, 1.40303)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="pingu"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.214125, -0.036371, -0.231238)
+size = Vector3(0.161704, 0.0758256, 1.40303)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00617766, 0.156832, 0)
 shape = SubResource("CapsuleShape3D_2uu0y")
@@ -35,14 +43,6 @@ light_size = 0.2
 light_negative = true
 spot_range = 4.75876
 spot_angle = 17.2881
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22458, -0.583035, -0.0809817)
-size = Vector3(0.161704, 0.0758256, 1.40303)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.214125, -0.583035, -0.0809817)
-size = Vector3(0.161704, 0.0758256, 1.40303)
 
 [node name="RayCast3D_far" type="RayCast3D" parent="."]
 target_position = Vector3(2.08165e-12, -50, 2.08165e-12)
