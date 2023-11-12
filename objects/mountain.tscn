@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:40d56fa4c18acc2dde5c683b57af67bb5d2e191139455a28e2c0d4f5a58fa426
-size 222
+[gd_scene load_steps=2 format=3 uid="uid://chtmp0qxgn4lo"]
+
+[ext_resource type="PackedScene" uid="uid://js6yij6vmqb2" path="res://assets/mountain.gltf" id="1_mug5d"]
+
+[node name="mountain" instance=ExtResource("1_mug5d")]
