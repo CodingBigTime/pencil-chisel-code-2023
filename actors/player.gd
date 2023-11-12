@@ -3,7 +3,7 @@ extends RigidBody3D
 
 signal launch_weapon(weapon_name, launch_strength)
 signal boost_count_changed(new_value)
-signal increase_score(amount)
+signal increase_score_signal(amount)
 signal die
 
 signal player_position_changed(position: Vector3)
@@ -68,6 +68,10 @@ func _process(_delta: float):
 			new_audio_player.play()
 
 
+func increase_score(amount: int = 1):
+	increase_score_signal.emit(amount)
+
+
 func _physics_process(delta: float):
 	get_tree().call_group("enemies", "update_player_position", global_position)
 
@@ -76,7 +80,7 @@ func _physics_process(delta: float):
 
 	# TODO: remove
 	if Input.is_action_just_pressed("score_debug"):
-		increase_score.emit(1)
+		increase_score_signal.emit(1)
 
 	var input_rotation = Input.get_action_strength("right") - Input.get_action_strength("left")
 	rotate(Vector3(0, -1, 0), input_rotation * delta * ROTATION_SPEED)
@@ -90,6 +94,11 @@ func _physics_process(delta: float):
 
 	if Input.is_action_just_pressed("boost"):
 		boost()
+
+	# Handle collision
+	for body in get_colliding_bodies():
+		if body.is_in_group("weapon"):
+			launch_weapon.emit(body.name, linear_velocity * LAUNCH_FORCE)
 
 	velocity_xz = Vector2(linear_velocity.x, linear_velocity.z)
 	var velocity_xz_clamped = Trigonometry.clamp_vector_2d(velocity_xz, MAX_VELOCITY)
