@@ -38,33 +38,15 @@ func add_boost_count(value):
 
 
 func boost():
-	if boost_count > 0:
-		linear_velocity += (Vector3(0, 0, -1).rotated(Vector3(0, 1, 0), rotation.y) * BOOST_SPEED)
-		boost_count -= 1
-		boost_count_changed.emit(boost_count)
-
-
-# Create an AudioStreamPlayer3D node (if it doesn't exist) and play the sound.
-func _process(_delta: float):
-	var can_play = true
-
-	for child in get_children():
-		if child.name.contains("AudioStreamPlayer3D"):
-			if not child.playing:
-				child.queue_free()
-				can_play = true
-			else:
-				can_play = false
-			break
-
-	if linear_velocity.length() > 0.1 and $RayCast3D_close.is_colliding():
-		var random_chance_to_play = randf()
-		if can_play and random_chance_to_play < 0.01:
-			var new_audio_player = AudioStreamPlayer3D.new()
-			new_audio_player.stream = ski_sounds[randi() % ski_sounds.size()]
-			new_audio_player.pitch_scale = 0.8 + randf() * 0.4
-			add_child(new_audio_player)
-			new_audio_player.play()
+	if boost_count <= 0:
+		return
+	linear_velocity += (Vector3(0, 0, -1).rotated(Vector3(0, 1, 0), rotation.y) * BOOST_SPEED)
+	boost_count -= 1
+	boost_count_changed.emit(boost_count)
+	if not $AudioPlayer.playing:
+		$AudioPlayer.stream = ski_sounds[randi() % ski_sounds.size()]
+		$AudioPlayer.pitch_scale = 0.8 + randf() * 0.4
+		$AudioPlayer.play()
 
 
 func increase_score(amount: int = 1):

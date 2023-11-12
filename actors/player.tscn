@@ -75,4 +75,6 @@ trail_lifetime = 1.1
 process_material = SubResource("ParticleProcessMaterial_v2sb5")
 draw_pass_1 = SubResource("BoxMesh_oqkbr")
 
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
