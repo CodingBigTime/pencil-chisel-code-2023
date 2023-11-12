@@ -3,6 +3,7 @@ extends RigidBody3D
 signal enemy_killed
 
 var launched = false
+var ice_explosion = preload("res://objects/icexplosion.tscn")
 
 
 func _ready():
@@ -46,6 +47,9 @@ func _on_Timer_timeout():
 
 
 func explode():
+	var explosion = ice_explosion.instantiate()
+	explosion.position = position
+	get_parent().add_child(explosion)
 	var overlapping_bodies = $Area3D.get_overlapping_bodies()
 	for body in overlapping_bodies:
 		if body.is_in_group("player"):

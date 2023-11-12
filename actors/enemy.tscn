@@ -65,6 +65,7 @@ material = SubResource("StandardMaterial3D_4jvg8")
 amount = 300
 explosiveness = 0.1
 randomness = 1.0
+visibility_aabb = AABB(-40, -40, -40, 80, 80, 80)
 process_material = SubResource("ParticleProcessMaterial_xy2ev")
 draw_pass_1 = SubResource("BoxMesh_6o4fx")
 
@@ -73,5 +74,6 @@ amount = 50
 lifetime = 0.3
 explosiveness = 0.5
 randomness = 1.0
+visibility_aabb = AABB(-40, -40, -40, 80, 80, 80)
 process_material = SubResource("ParticleProcessMaterial_7egev")
 draw_pass_1 = SubResource("BoxMesh_r600b")

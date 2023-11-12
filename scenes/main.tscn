@@ -42,10 +42,13 @@ sky_material = SubResource("ProceduralSkyMaterial_h6sp0")
 background_mode = 2
 sky = SubResource("Sky_oy1ne")
 glow_enabled = true
+glow_intensity = 1.8
+glow_strength = 0.9
 glow_bloom = 0.4
+glow_blend_mode = 1
 glow_hdr_threshold = 1.2
 volumetric_fog_enabled = true
-volumetric_fog_length = 54.0
+volumetric_fog_albedo = Color(0.301961, 0.301961, 0.301961, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bgh5k"]
 lifetime_randomness = 0.2
@@ -111,12 +114,13 @@ environment = SubResource("Environment_6w1rm")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 6.09248e-10, -6.98492e-10, 1.16756e-10, 1, 2.91038e-10, 0, -6.40284e-10, 1, 0.160883, 112.815, -0.0853859)
-amount = 20000
+amount = 40000
 lifetime = 3.0
 speed_scale = 0.75
 randomness = 0.71
 visibility_aabb = AABB(-200, -200, -200, 400, 400, 400)
 trail_enabled = true
+trail_lifetime = 0.1
 process_material = SubResource("ParticleProcessMaterial_bgh5k")
 draw_pass_1 = SubResource("RibbonTrailMesh_a8buv")
 
