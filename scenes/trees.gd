@@ -10,7 +10,7 @@ func spawn_tree(point: Vector3) -> void:
 	raycast.position = point
 	raycast.target_position = Vector3(0, -100, 0)
 	raycast.force_raycast_update()
-	if raycast.is_colliding() and not raycast.get_collider().is_in_group("tree"):
+	if raycast.is_colliding() and not raycast.get_collider().is_in_group("procedural"):
 		var spawn_point = raycast.get_collision_point()
 		var tree = tree_resource.instantiate()
 		tree.position = spawn_point

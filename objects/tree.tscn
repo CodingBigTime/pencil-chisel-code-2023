@@ -9,7 +9,7 @@ height = 10.0
 height = 6.0
 radius = 1.5
 
-[node name="tree" type="StaticBody3D" groups=["environment", "tree"]]
+[node name="tree" type="StaticBody3D" groups=["environment", "procedural", "tree"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="tree_3" parent="." instance=ExtResource("1_u5ro0")]
