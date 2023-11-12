@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dad5je0e0l2rk"]
+[gd_scene load_steps=6 format=3 uid="uid://2w6yakjowypx"]
 
 [ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="1_7ud0s"]
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
 [ext_resource type="PackedScene" uid="uid://w8bd5n1p2168" path="res://objects/mountain.tscn" id="3_yenbf"]
-[ext_resource type="PackedScene" uid="uid://bxmjjpfslwi3x" path="res://objects/glacier.tscn" id="4_f4xd1"]
+[ext_resource type="PackedScene" path="res://objects/glacier.tscn" id="4_f4xd1"]
+
+[sub_resource type="Environment" id="Environment_6w1rm"]
+glow_enabled = true
+glow_bloom = 0.4
+volumetric_fog_enabled = true
 
 [node name="Map" type="Node3D"]
 transform = Transform3D(0.999998, -0.00142493, 0.00151929, 0.00142608, 0.999999, -0.000756879, -0.00151822, 0.000759032, 0.999999, 0, 0, 0)
@@ -35,3 +40,6 @@ transform = Transform3D(-2, 3.01992e-07, 0, -3.01992e-07, -2, 0, 0, 0, 2, 5.3163
 
 [node name="Glacier" parent="." instance=ExtResource("4_f4xd1")]
 transform = Transform3D(0.503716, 0.751719, -0.425666, -0.752987, 0.623572, 0.210165, 0.423418, 0.214657, 0.880137, 35.9658, 111.228, 15.7381)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6w1rm")
