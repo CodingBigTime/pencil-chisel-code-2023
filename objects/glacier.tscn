@@ -49,3 +49,6 @@ randomness = 1.0
 visibility_aabb = AABB(-8, -8, -8, 16, 16, 16)
 process_material = SubResource("ParticleProcessMaterial_gn5sv")
 draw_pass_1 = SubResource("BoxMesh_15uy1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0

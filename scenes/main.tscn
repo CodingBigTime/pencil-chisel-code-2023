@@ -103,3 +103,6 @@ transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
 
 [node name="main_ui" parent="." instance=ExtResource("5_hp1v1")]
 script = SubResource("GDScript_gull0")
+
+[node name="Glacier2" parent="." instance=ExtResource("4_f4xd1")]
+transform = Transform3D(1.29999, 0.0046726, -0.00236246, -0.00467056, 1.29999, 0.00112582, 0.00236649, -0.00111732, 1.3, 44.8099, -17.028, 19.8362)

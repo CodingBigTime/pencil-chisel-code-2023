@@ -10,7 +10,7 @@ signal player_position_changed(position: Vector3)
 
 const BOOST_SPEED = 5.0
 const LAUNCH_FORCE = 3
-const ROTATION_SPEED = 2.5
+const ROTATION_SPEED = 4
 const MAX_VELOCITY = 100.0
 const TERMINAL_VELOCITY = 20.0
 
