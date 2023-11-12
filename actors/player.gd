@@ -116,6 +116,8 @@ func _physics_process(delta: float):
 			)
 			$pingu.rotation.y = 0
 
+	player_position_changed.emit(position)
+
 
 func _on_body_entered(body: Node):
 	if body.is_in_group("weapon"):
