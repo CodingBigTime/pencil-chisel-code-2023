@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bmqcocleh68ms" path="res://objects/spawners/spawner.tscn" id="3_xi66a"]
 [ext_resource type="PackedScene" uid="uid://b54oqd74o7jyk" path="res://assets/map7.glb" id="4_4337f"]
 [ext_resource type="Script" path="res://objects/spawners/periodic_spawner.gd" id="4_b5dko"]
-[ext_resource type="PackedScene" uid="uid://bs874u23dhorv" path="res://actors/enemy.tscn" id="4_g7cr1"]
+[ext_resource type="PackedScene" uid="uid://dn1acga816cwk" path="res://actors/enemy.tscn" id="4_g7cr1"]
 [ext_resource type="PackedScene" uid="uid://cn6lce1nym2nc" path="res://scenes/ui/main_ui.tscn" id="5_hp1v1"]
 [ext_resource type="PackedScene" uid="uid://0e5lvk8aogo1" path="res://assets/tower.gltf" id="8_he10b"]
-[ext_resource type="Texture2D" uid="uid://br6b1hw7bl23f" path="res://icon.svg" id="9_i78qh"]
+[ext_resource type="Texture2D" uid="uid://ch1urjux36k1l" path="res://assets/eye.png" id="9_oe0qq"]
 [ext_resource type="AudioStream" uid="uid://dmf3b3ra84idr" path="res://assets/sfx/bgm.mp3" id="10_alopi"]
 [ext_resource type="Script" path="res://scenes/trees.gd" id="12_yu1yo"]
 [ext_resource type="Script" path="res://objects/spawners/instant_spawner.gd" id="13_qygkj"]
@@ -131,8 +131,11 @@ transform = Transform3D(4.98177, -0.00107888, -3.34395, 0.00398305, 6, 0.0039980
 
 [node name="Sprite3D" type="Sprite3D" parent="tower"]
 transform = Transform3D(1, -1.66354e-09, 8.93623e-08, 1.66354e-09, 1, -6.54836e-10, -8.93623e-08, 6.54836e-10, 1, 0, 6, 0)
+modulate = Color(5, 0.6, 0.4, 1)
+pixel_size = 0.1
 billboard = 1
-texture = ExtResource("9_i78qh")
+texture_filter = 0
+texture = ExtResource("9_oe0qq")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("10_alopi")
