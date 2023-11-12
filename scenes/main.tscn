@@ -1,14 +1,40 @@
-[gd_scene load_steps=6 format=3 uid="uid://dad5je0e0l2rk"]
+[gd_scene load_steps=10 format=3 uid="uid://2w6yakjowypx"]
 
-[ext_resource type="PackedScene" uid="uid://cto5hssbufjkt" path="res://actors/player.tscn" id="1_7ud0s"]
+[ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="1_7ud0s"]
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
-[ext_resource type="PackedScene" path="res://objects/mountain.tscn" id="3_yenbf"]
-[ext_resource type="PackedScene" uid="uid://bxmjjpfslwi3x" path="res://objects/glacier.tscn" id="4_f4xd1"]
+[ext_resource type="PackedScene" uid="uid://w8bd5n1p2168" path="res://objects/mountain.tscn" id="3_yenbf"]
+[ext_resource type="PackedScene" path="res://objects/glacier.tscn" id="4_f4xd1"]
 
 [sub_resource type="Environment" id="Environment_6w1rm"]
 glow_enabled = true
 glow_bloom = 0.4
+glow_hdr_threshold = 1.2
 volumetric_fog_enabled = true
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bgh5k"]
+lifetime_randomness = 0.2
+emission_shape = 3
+emission_box_extents = Vector3(400, 200, 400)
+spread = 10.0
+angle_min = -45.0
+angle_max = 45.0
+collision_mode = 2
+
+[sub_resource type="Curve" id="Curve_qdmuy"]
+_data = [Vector2(0.183908, 0), 0.0, 0.0, 0, 0, Vector2(0.33908, 0.578947), 0.0, 0.0, 0, 0, Vector2(0.545977, 0.936842), 0.0, 0.0, 0, 0, Vector2(0.741379, 0.652632), 0.0, 0.0, 0, 0, Vector2(0.954023, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dxtc"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(2, 2, 2, 1)
+use_particle_trails = true
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_a8buv"]
+material = SubResource("StandardMaterial3D_4dxtc")
+sections = 2
+curve = SubResource("Curve_qdmuy")
 
 [node name="Map" type="Node3D"]
 transform = Transform3D(0.999998, -0.00142493, 0.00151929, 0.00142608, 0.999999, -0.000756879, -0.00151822, 0.000759032, 0.999999, 0, 0, 0)
@@ -17,9 +43,9 @@ transform = Transform3D(0.999998, -0.00142493, 0.00151929, 0.00142608, 0.999999,
 transform = Transform3D(1, 9.26043e-10, 2.49698e-11, -2.23539e-11, 1, -1.24232e-11, 1.1314e-11, -4.71173e-10, 1, 18.343, 133.725, 5.52958)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 6.93301e-10, 1.08125e-08, 2.642e-10, 1, 1.21726e-08, 1.13136e-11, -3.54758e-10, 1, -0.874826, 26.6851, -0.0629961)
+transform = Transform3D(1, 7.25549e-10, 1.07102e-08, 2.33399e-10, 1, 1.22236e-08, 0, -4.07454e-10, 1, -0.874826, 26.6851, -0.0629961)
 current = true
-near = 0.02
+near = 0.006
 script = ExtResource("2_nl8p7")
 
 [node name="mountain" parent="." instance=ExtResource("3_yenbf")]
@@ -42,3 +68,14 @@ transform = Transform3D(0.503716, 0.751719, -0.425666, -0.752987, 0.623572, 0.21
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_6w1rm")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 6.09248e-10, -6.98492e-10, 1.16756e-10, 1, 2.91038e-10, 0, -6.40284e-10, 1, 0.160883, 112.815, -0.0853859)
+amount = 20000
+lifetime = 3.0
+speed_scale = 0.75
+randomness = 0.71
+visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
+trail_enabled = true
+process_material = SubResource("ParticleProcessMaterial_bgh5k")
+draw_pass_1 = SubResource("RibbonTrailMesh_a8buv")
