@@ -23,7 +23,6 @@ script = ExtResource("1_d0guk")
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
-rotation = -0.000531537
 texture = ExtResource("3_ycbwy")
 
 [node name="HomeMenu" type="MarginContainer" parent="."]
