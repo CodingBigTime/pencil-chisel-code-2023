@@ -1,17 +1,74 @@
-[gd_scene load_steps=4 format=3 uid="uid://dn1acga816cwk"]
+[gd_scene load_steps=10 format=3 uid="uid://bs874u23dhorv"]
 
 [ext_resource type="Script" path="res://actors/enemy.gd" id="1_cqyxv"]
-[ext_resource type="Texture2D" uid="uid://16ewb8qmwe12" path="res://actors/icon.svg" id="1_irwbw"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_npats"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_qrjm8"]
+radius = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4jvg8"]
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(2.5, 0.25, 0, 1)
+emission = Color(1, 0.0117647, 0.027451, 1)
+emission_energy_multiplier = 4.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xy2ev"]
+direction = Vector3(0, 2, 0)
+spread = 70.0
+gravity = Vector3(0, 5, 0)
+initial_velocity_min = -2.0
+initial_velocity_max = 2.0
+scale_min = 0.1
+scale_max = 2.0
+color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nbqr8"]
+transparency = 1
+albedo_color = Color(3.4, 0.615686, 0, 0.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6o4fx"]
+material = SubResource("StandardMaterial3D_nbqr8")
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7egev"]
+direction = Vector3(0, 1, 0)
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -10.0
+initial_velocity_max = 10.0
+scale_min = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5pm4"]
+transparency = 1
+albedo_color = Color(2.4, 1.2, 0, 0.75)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r600b"]
+material = SubResource("StandardMaterial3D_k5pm4")
+size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Enemy" type="CharacterBody3D"]
 floor_constant_speed = true
 script = ExtResource("1_cqyxv")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-billboard = 1
-texture = ExtResource("1_irwbw")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_npats")
+shape = SubResource("SphereShape3D_qrjm8")
+
+[node name="CSGBox3D" type="CSGSphere3D" parent="."]
+radius = 0.3
+radial_segments = 4
+rings = 2
+material = SubResource("StandardMaterial3D_4jvg8")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 300
+explosiveness = 0.1
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_xy2ev")
+draw_pass_1 = SubResource("BoxMesh_6o4fx")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+amount = 50
+lifetime = 0.6
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_7egev")
+draw_pass_1 = SubResource("BoxMesh_r600b")
