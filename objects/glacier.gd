@@ -22,6 +22,7 @@ func _launch(collider_name, velocity):
 	gravity_scale = 1
 	apply_impulse(velocity)
 	$Timer.start()
+	$AnimationPlayer.play("explosion_windup")
 	var sound_player = AudioStreamPlayer3D.new()
 	sound_player.stream = load("res://assets/sfx/push_ice.wav")
 	add_child(sound_player)

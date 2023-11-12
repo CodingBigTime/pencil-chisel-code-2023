@@ -19,6 +19,7 @@ max_contacts_reported = 6
 contact_monitor = true
 can_sleep = false
 script = ExtResource("1_fkmfk")
+starting_boost_count = null
 
 [node name="Area3D" type="Area3D" parent="."]
 

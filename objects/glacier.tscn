@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyhcfsvkd2wxc"]
+[gd_scene load_steps=10 format=3 uid="uid://cyhcfsvkd2wxc"]
 
 [ext_resource type="Script" path="res://objects/glacier.gd" id="1_wim78"]
 [ext_resource type="PackedScene" uid="uid://ckyy8a370r2a4" path="res://assets/glacier.gltf" id="2_0je6o"]
@@ -26,15 +26,32 @@ material = SubResource("StandardMaterial3D_nth6y")
 [sub_resource type="SphereShape3D" id="SphereShape3D_q8bpl"]
 radius = 15.8148
 
+[sub_resource type="Animation" id="Animation_x6d5r"]
+resource_name = "explosion_windup"
+length = 4.16667
+step = 0.0166667
+tracks/0/type = "scale_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("glacier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.283333, 1, 1, 1, 1, 0.483333, 1, 1.5, 1.5, 1.5, 0.666667, 1, 1, 1, 1, 0.866667, 1, 1.5, 1.5, 1.5, 1.1, 1, 1, 1, 1, 1.3, 1, 1.5, 1.5, 1.5, 1.48333, 1, 1, 1, 1, 1.68333, 1, 1.5, 1.5, 1.5, 1.9, 1, 1, 1, 1, 2.1, 1, 1, 1, 1, 2.18333, 1, 1.07692, 1.07692, 1.07692, 2.28333, 1, 1.5, 1.5, 1.5, 2.35, 1, 1, 1, 1, 2.43333, 1, 1, 1, 1, 2.53333, 1, 1.5, 1.5, 1.5, 2.61667, 1, 1, 1, 1, 2.7, 1, 1, 1, 1, 2.8, 1, 1.5, 1.5, 1.5, 2.86667, 1, 1, 1, 1, 2.95, 1, 1, 1, 1, 3.05, 1, 1.5, 1.5, 1.5, 3.13333, 1, 1, 1, 1, 3.21667, 1, 1.07692, 1.07692, 1.07692, 3.31667, 1, 1.5, 1.5, 1.5, 3.38333, 1, 1, 1, 1, 3.46667, 1, 1, 1, 1, 3.56667, 1, 1.5, 1.5, 1.5, 3.65, 1, 1, 1, 1, 3.73333, 1, 1, 1, 1, 3.83333, 1, 1.5, 1.5, 1.5, 3.9, 1, 1, 1, 1, 3.98333, 1, 1, 1, 1, 4.08333, 1, 1.5, 1.5, 1.5)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fvhb3"]
+_data = {
+"explosion_windup": SubResource("Animation_x6d5r")
+}
+
 [node name="Glacier" type="RigidBody3D" groups=["environment", "weapon"]]
-transform = Transform3D(0.999992, 0.00359431, -0.00181728, -0.00359274, 0.999993, 0.000866014, 0.00182038, -0.000859478, 0.999998, 0, 0, 0)
+transform = Transform3D(2.99998, 0.0107829, -0.00545183, -0.0107782, 2.99998, 0.00259804, 0.00546113, -0.00257844, 2.99999, 0, 0, 0)
 gravity_scale = 2.66454e-15
 max_contacts_reported = 10000
 contact_monitor = true
 script = ExtResource("1_wim78")
 
 [node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+transform = Transform3D(0.999922, 0.0104128, -0.00684094, -0.0103639, 0.999921, 0.00714823, 0.00691485, -0.00707676, 0.999951, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 top_level = true
 target_position = Vector3(2.08165e-12, -50, 2.08165e-12)
 
@@ -43,6 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262, 0)
 shape = SubResource("SphereShape3D_pvu2j")
 
 [node name="glacier" parent="." instance=ExtResource("2_0je6o")]
+transform = Transform3D(1.5, -1.89658e-09, -8.24758e-11, 2.22722e-09, 1.5, 2.55521e-11, -6.44209e-10, 4.78392e-10, 1.5, 1.79484e-10, -0.245135, 1.92874e-11)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 emitting = false
@@ -61,5 +79,10 @@ wait_time = 4.0
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1.03261, -4.59764e-09, -7.84596e-11, -1.87624e-10, 1.03261, 7.60895e-11, 1.92288e-09, 6.92094e-10, 1.03261, -7.02048e-10, 0.293451, -6.96168e-11)
+transform = Transform3D(1.03261, -5.10067e-09, 3.19738e-11, -1.95086e-10, 1.03261, 5.07344e-11, 1.89494e-09, 7.50843e-10, 1.03261, -7.51348e-10, 0.293451, -6.12473e-11)
 shape = SubResource("SphereShape3D_q8bpl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_fvhb3")
+}
