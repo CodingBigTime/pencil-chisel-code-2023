@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://3630s2wnw678"
-path="res://.godot/imported/pingu.gltf-13486dc9a72188ef8fb31ed7af8568cc.scn"
+path="res://.godot/imported/pingu_old.gltf-8991bedf9c17ae97580204a771537701.scn"
 
 [deps]
 
-source_file="res://assets/pingu.gltf"
-dest_files=["res://.godot/imported/pingu.gltf-13486dc9a72188ef8fb31ed7af8568cc.scn"]
+source_file="res://assets/pingu_old.gltf"
+dest_files=["res://.godot/imported/pingu_old.gltf-8991bedf9c17ae97580204a771537701.scn"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cup6i73gp2txa"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_fkmfk"]
-[ext_resource type="PackedScene" uid="uid://3630s2wnw678" path="res://assets/pingu.gltf" id="2_gi514"]
+[ext_resource type="PackedScene" uid="uid://dwxinhipuxcsq" path="res://assets/pingu_2.gltf" id="2_i8x48"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fbiwg"]
 friction = 0.0
@@ -21,16 +21,8 @@ contact_monitor = true
 can_sleep = false
 script = ExtResource("1_fkmfk")
 
-[node name="pingu" parent="." instance=ExtResource("2_gi514")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.546664, 0.150256)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="pingu"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22458, -0.036371, -0.231238)
-size = Vector3(0.161704, 0.0758256, 1.40303)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="pingu"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.214125, -0.036371, -0.231238)
-size = Vector3(0.161704, 0.0758256, 1.40303)
+[node name="pingu" parent="." instance=ExtResource("2_i8x48")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, -0.15)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00617766, 0.156832, 0)
