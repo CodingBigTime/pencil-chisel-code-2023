@@ -89,6 +89,5 @@ func _on_body_entered(body: Node):
 	if body.is_in_group("weapon"):
 		launch_weapon.emit(body.name, linear_velocity * LAUNCH_FORCE)
 		increase_score.emit(1)
-		linear_velocity *= 0.5
 	if body.is_in_group("enemy"):
 		die.emit()
