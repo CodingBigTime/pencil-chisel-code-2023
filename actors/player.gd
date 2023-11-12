@@ -56,12 +56,8 @@ func increase_score(amount: int = 1):
 func _physics_process(delta: float):
 	get_tree().call_group("enemy", "update_player_position", global_position)
 
-	if position.y < -70 or Input.is_action_just_pressed("suicide"):
+	if position.y < -70 or Input.is_action_just_pressed("menu"):
 		die.emit()
-
-	# TODO: remove
-	if Input.is_action_just_pressed("score_debug"):
-		increase_score_signal.emit(1)
 
 	var input_rotation = Input.get_action_strength("right") - Input.get_action_strength("left")
 	rotate(Vector3(0, -1, 0), input_rotation * delta * ROTATION_SPEED)
