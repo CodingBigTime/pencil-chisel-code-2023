@@ -1,5 +1,7 @@
 extends RigidBody3D
 
+signal enemy_killed
+
 var launched = false
 
 
@@ -14,7 +16,6 @@ func _ready():
 
 
 func _launch(collider_name, velocity):
-	# var player_node = get_node_or_null("/root/Map/player")
 	if collider_name != name or launched:
 		return
 	launched = true
@@ -39,4 +40,15 @@ func _physics_process(_delta: float):
 
 
 func _on_Timer_timeout():
+	explode()
 	queue_free()
+
+
+func explode():
+	var overlapping_bodies = $Area3D.get_overlapping_bodies()
+	for body in overlapping_bodies:
+		if body.is_in_group("player"):
+			body.die.emit()
+		if body.is_in_group("enemy"):
+			body.queue_free()
+			enemy_killed.emit()

@@ -13,7 +13,6 @@ const LAUNCH_FORCE = 3
 const ROTATION_SPEED = 4
 const MAX_VELOCITY = 100.0
 const TERMINAL_VELOCITY = 20.0
-const CONSTANT_VELOCITY = Vector3(0, 0, -2)
 
 @export var starting_boost_count: int = 0
 var starting_position: Vector3
@@ -97,10 +96,6 @@ func _physics_process(delta: float):
 	linear_velocity.x = velocity_xz_clamped.x
 	linear_velocity.z = velocity_xz_clamped.y
 
-	var forward_direction = CONSTANT_VELOCITY.rotated(Vector3(0, 1, 0), rotation.y)
-	if linear_velocity.length() < CONSTANT_VELOCITY.length():
-		apply_central_impulse(forward_direction - linear_velocity)
-
 	if $RayCast3D_far.is_colliding():
 		position.y = lerp(position.y, $RayCast3D_far.get_collision_point().y + 0.05, 0.1)
 
@@ -116,6 +111,5 @@ func _physics_process(delta: float):
 func _on_body_entered(body: Node):
 	if body.is_in_group("weapon"):
 		launch_weapon.emit(body.name, linear_velocity * LAUNCH_FORCE)
-		increase_score.emit(1)
 	if body.is_in_group("enemy"):
 		die.emit()
