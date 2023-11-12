@@ -6,7 +6,6 @@ extends Node3D
 
 
 func num_boosts() -> int:
-	print(get_child_count())
 	return get_child_count()
 
 
@@ -20,7 +19,6 @@ func spawn_boost(point: Vector3) -> void:
 	raycast.target_position = Vector3(0, -100, 0)
 	raycast.force_raycast_update()
 	if raycast.is_colliding():
-		print("cringe")
 		var boost = boost_resource.instantiate()
 		boost.position = point
 		add_child(boost)
