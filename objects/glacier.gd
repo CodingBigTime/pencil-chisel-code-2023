@@ -19,9 +19,9 @@ func _launch(collider_name, velocity):
 		apply_impulse(velocity)
 
 
-func _physics_process(delta: float):
+func _physics_process(_delta: float):
 	if launched:
 		$RayCast3D.position = self.position
 		if $RayCast3D.is_colliding():
 			var coliding_with = $RayCast3D.get_collision_point().y
-			position.y = lerp(position.y, coliding_with , 0.1)
+			position.y = lerp(position.y, coliding_with, 0.1)
