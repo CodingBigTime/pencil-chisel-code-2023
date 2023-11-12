@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://2w6yakjowypx"]
+[gd_scene load_steps=6 format=3 uid="uid://dad5je0e0l2rk"]
 
-[ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="1_7ud0s"]
+[ext_resource type="PackedScene" uid="uid://cto5hssbufjkt" path="res://actors/player.tscn" id="1_7ud0s"]
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
-[ext_resource type="PackedScene" uid="uid://w8bd5n1p2168" path="res://objects/mountain.tscn" id="3_yenbf"]
-[ext_resource type="PackedScene" path="res://objects/glacier.tscn" id="4_f4xd1"]
+[ext_resource type="PackedScene" path="res://objects/mountain.tscn" id="3_yenbf"]
+[ext_resource type="PackedScene" uid="uid://bxmjjpfslwi3x" path="res://objects/glacier.tscn" id="4_f4xd1"]
 
 [sub_resource type="Environment" id="Environment_6w1rm"]
 glow_enabled = true
