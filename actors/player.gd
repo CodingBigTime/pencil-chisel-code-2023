@@ -5,6 +5,7 @@ signal launch_weapon(weapon_name, launch_strength)
 signal boost_count_changed(new_value)
 signal increase_score(amount)
 signal die
+signal location_feet(position_left, position_right)
 
 signal player_position_changed(position: Vector3)
 
@@ -34,7 +35,7 @@ func add_boost_count():
 
 
 func boost():
-	if boost_count > 0:
+	if boost_count > -9999:
 		linear_velocity += (Vector3(0, 0, -1).rotated(Vector3(0, 1, 0), rotation.y) * BOOST_SPEED)
 		boost_count -= 1
 		boost_count_changed.emit(boost_count)
@@ -42,7 +43,8 @@ func boost():
 
 func _physics_process(delta: float):
 	get_tree().call_group("enemies", "update_player_position", global_position)
-  
+	location_feet.emit(global_position)
+
 	if Input.is_action_just_pressed("suicide"):
 		die.emit()
 

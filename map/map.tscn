@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=3 uid="uid://bdsawi5ghdaoh"]
+
+[ext_resource type="PackedScene" uid="uid://b54oqd74o7jyk" path="res://assets/map7.glb" id="1_pq3vu"]
+[ext_resource type="Shader" path="res://shaders/snow.gdshader" id="2_i33km"]
+[ext_resource type="Script" path="res://map/SubViewport.gd" id="2_k70il"]
+[ext_resource type="Texture2D" uid="uid://bxxeiqa024nrm" path="res://shaders/snow_02_translucent_4k.png" id="3_bg8o2"]
+[ext_resource type="Texture2D" uid="uid://b4slsvb22i33h" path="res://shaders/gcircle.png" id="4_lrc15"]
+[ext_resource type="Texture2D" uid="uid://m3lyrti5050r" path="res://shaders/snow_02_disp_4k.png" id="4_qius2"]
+[ext_resource type="Texture2D" uid="uid://camvaif014duo" path="res://shaders/snow_02_rough_4k.jpg" id="5_n2o2b"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vq86l"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_71ey2"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_i33km")
+shader_parameter/uv_scale = 1.0
+shader_parameter/snow_albedo = ExtResource("3_bg8o2")
+shader_parameter/snow_normal = ExtResource("4_qius2")
+shader_parameter/snow_roughness = ExtResource("5_n2o2b")
+shader_parameter/dynamic_snow_mask = SubResource("ViewportTexture_vq86l")
+
+[node name="map" instance=ExtResource("1_pq3vu")]
+
+[node name="Cone" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_71ey2")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." index="2"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" index="0"]
+handle_input_locally = false
+size = Vector2i(380, 380)
+render_target_clear_mode = 2
+render_target_update_mode = 4
+script = ExtResource("2_k70il")
+
+[node name="left" type="Sprite2D" parent="SubViewportContainer/SubViewport" index="0"]
+texture = ExtResource("4_lrc15")
+centered = false
