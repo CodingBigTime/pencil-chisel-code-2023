@@ -42,7 +42,7 @@ func boost():
 
 func _physics_process(delta: float):
 	get_tree().call_group("enemies", "update_player_position", global_position)
-  
+
 	if Input.is_action_just_pressed("suicide"):
 		die.emit()
 

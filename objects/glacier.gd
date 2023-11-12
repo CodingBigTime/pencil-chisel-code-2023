@@ -37,5 +37,6 @@ func _physics_process(_delta: float):
 		var coliding_with = $RayCast3D.get_collision_point().y
 		position.y = lerp(position.y, coliding_with, 0.1)
 
+
 func _on_Timer_timeout():
 	queue_free()
