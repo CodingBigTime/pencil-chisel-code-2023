@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://scenes/trees.gd" id="12_yu1yo"]
 [ext_resource type="Script" path="res://objects/spawners/instant_spawner.gd" id="13_qygkj"]
 [ext_resource type="Script" path="res://scenes/glaciers.gd" id="14_7bx01"]
-[ext_resource type="PackedScene" uid="uid://32004prnxbjg" path="res://objects/boost.tscn" id="15_j0yn8"]
+[ext_resource type="PackedScene" uid="uid://diwkcvyk3e2v2" path="res://objects/boost.tscn" id="15_j0yn8"]
 
 [sub_resource type="GDScript" id="GDScript_1wg7g"]
 script/source = "extends Spawner
