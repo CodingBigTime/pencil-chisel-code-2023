@@ -62,4 +62,4 @@ func _physics_process(delta: float):
 		$pingu.rotation.y = 0
 
 		if not $RayCast3D_close.is_colliding():
-			position.y = lerp(position.y, $RayCast3D_far.get_collision_point().y, 0.1)
+			position.y = lerp(position.y, $RayCast3D_far.get_collision_point().y + 0.05, 0.1)
