@@ -119,3 +119,7 @@ func _on_body_entered(body: Node):
 		launch_weapon.emit(body.name, linear_velocity * LAUNCH_FORCE)
 	if body.is_in_group("enemy"):
 		die.emit()
+
+
+func _on_timer_timeout():
+	add_boost_count(1)
