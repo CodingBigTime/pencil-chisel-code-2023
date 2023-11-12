@@ -33,3 +33,6 @@ func follow_player(delta):
 	rotation.y = -camera_angle + PI / 2
 
 	position = position.lerp(target_position, LERP_SPEED * delta)
+
+	var player_speed = $"../player".linear_velocity.length()
+	fov = lerpf(fov, 30 + player_speed * 2.5, 0.05)

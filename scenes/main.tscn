@@ -19,7 +19,6 @@ transform = Transform3D(1, 9.26043e-10, 2.49698e-11, -2.23539e-11, 1, -1.24232e-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 6.93301e-10, 1.08125e-08, 2.642e-10, 1, 1.21726e-08, 1.13136e-11, -3.54758e-10, 1, -0.874826, 26.6851, -0.0629961)
 current = true
-fov = 100.7
 near = 0.02
 script = ExtResource("2_nl8p7")
 
