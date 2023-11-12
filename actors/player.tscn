@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cup6i73gp2txa"]
+[gd_scene load_steps=5 format=3 uid="uid://cto5hssbufjkt"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_fkmfk"]
 [ext_resource type="PackedScene" uid="uid://3630s2wnw678" path="res://assets/pingu.gltf" id="2_gi514"]
@@ -45,6 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.214125, -0.583035, -0.0809
 size = Vector3(0.161704, 0.0758256, 1.40303)
 
 [node name="RayCast3D_far" type="RayCast3D" parent="."]
+target_position = Vector3(2.08165e-12, -50, 2.08165e-12)
 
 [node name="RayCast3D_close" type="RayCast3D" parent="."]
-target_position = Vector3(0, -0.75, 0)
+target_position = Vector3(2.08165e-12, -0.5, 2.08165e-12)

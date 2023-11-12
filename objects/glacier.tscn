@@ -6,14 +6,18 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_pvu2j"]
 radius = 0.583855
 
-[node name="Glacier" type="Node3D"]
+[node name="Glacier" type="RigidBody3D" groups=["weapon"]]
+transform = Transform3D(0.999992, 0.00359431, -0.00181729, -0.00359274, 0.999993, 0.000866, 0.00182038, -0.000859478, 0.999998, 0, 0, 0)
+gravity_scale = 2.66454e-15
 script = ExtResource("1_wim78")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["weapon"]]
-gravity_scale = 2.66454e-15
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+top_level = true
+target_position = Vector3(2.08165e-12, -50, 2.08165e-12)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.021719, 0.2617, 0.0124031)
 shape = SubResource("SphereShape3D_pvu2j")
 
-[node name="glacier" parent="RigidBody3D" instance=ExtResource("2_0je6o")]
+[node name="glacier" parent="." instance=ExtResource("2_0je6o")]

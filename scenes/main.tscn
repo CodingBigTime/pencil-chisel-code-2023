@@ -1,24 +1,28 @@
 [gd_scene load_steps=5 format=3 uid="uid://dad5je0e0l2rk"]
 
-[ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="1_7ud0s"]
+[ext_resource type="PackedScene" uid="uid://cto5hssbufjkt" path="res://actors/player.tscn" id="1_7ud0s"]
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
-[ext_resource type="PackedScene" uid="uid://w8bd5n1p2168" path="res://objects/mountain.tscn" id="3_yenbf"]
+[ext_resource type="PackedScene" path="res://objects/mountain.tscn" id="3_yenbf"]
 [ext_resource type="PackedScene" uid="uid://bxmjjpfslwi3x" path="res://objects/glacier.tscn" id="4_f4xd1"]
 
 [node name="Map" type="Node3D"]
+transform = Transform3D(0.999998, -0.00142493, 0.00151929, 0.00142608, 0.999999, -0.000756879, -0.00151822, 0.000759032, 0.999999, 0, 0, 0)
 
 [node name="player" parent="." instance=ExtResource("1_7ud0s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.343, 145.836, 9.21762)
+transform = Transform3D(1, 9.26043e-10, 2.49698e-11, -2.23539e-11, 1, -1.24232e-11, 1.1314e-11, -4.71173e-10, 1, 18.343, 133.725, 5.52958)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26.4948, 0)
+transform = Transform3D(1, 6.93301e-10, 1.08125e-08, 2.642e-10, 1, 1.21726e-08, 1.13136e-11, -3.54758e-10, 1, -0.874826, 26.6851, -0.0629961)
+current = true
+fov = 100.7
+near = 0.02
 script = ExtResource("2_nl8p7")
 
 [node name="mountain" parent="." instance=ExtResource("3_yenbf")]
 transform = Transform3D(20, 0, 0, 0, 10, 0, 0, 0, 20, 0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.36272, 0.0504454, -0.930532, 0.0778524, 0.993403, 0.0842004, 0.928641, -0.102985, 0.3564, -49.1771, 183.856, 15.5855)
+transform = Transform3D(-0.920243, 0.199766, 0.336522, 0.371402, 0.71683, 0.590098, -0.123348, 0.668018, -0.733851, -44.8685, 249.106, 196.814)
 light_angular_distance = 2.0
 light_bake_mode = 1
 shadow_enabled = true
@@ -30,4 +34,4 @@ directional_shadow_fade_start = 1.0
 transform = Transform3D(-2, 3.01992e-07, 0, -3.01992e-07, -2, 0, 0, 0, 2, 5.31634, 170.221, 0.161701)
 
 [node name="Glacier" parent="." instance=ExtResource("4_f4xd1")]
-transform = Transform3D(0.627148, 0.7789, 0, -0.7789, 0.627148, 0, 0, 0, 1, 23.5427, 126.125, 8.14721)
+transform = Transform3D(0.503716, 0.751719, -0.425666, -0.752987, 0.623572, 0.210165, 0.423418, 0.214657, 0.880137, 35.9658, 111.228, 15.7381)

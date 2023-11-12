@@ -2,9 +2,9 @@ extends RigidBody3D
 
 signal launch_weapon(weapon_name, launch_strength)
 
-const BOOST_SPEED = 20.0
-const LAUNCH_FORCE = 1.0
-const ROTATION_SPEED = 2.0
+const BOOST_SPEED = 5.0
+const LAUNCH_FORCE = 3
+const ROTATION_SPEED = 2.5
 const MAX_VELOCITY = 100.0
 const TERMINAL_VELOCITY = 20.0
 
@@ -45,7 +45,7 @@ func _physics_process(delta: float):
 	# Handle collision
 	for body in get_colliding_bodies():
 		if body.is_in_group("weapon"):
-			launch_weapon.emit(body.get_parent().name, linear_velocity * LAUNCH_FORCE)
+			launch_weapon.emit(body.name, linear_velocity * LAUNCH_FORCE)
 			linear_velocity *= 0.5
 
 	velocity_xz = Vector2(linear_velocity.x, linear_velocity.z)
@@ -54,4 +54,4 @@ func _physics_process(delta: float):
 	linear_velocity.z = velocity_xz_clamped.y
 
 	if $RayCast3D_far.is_colliding() and not $RayCast3D_close.is_colliding():
-		position.y = lerp(position.y, $RayCast3D_far.get_collision_point().y + 0.5, 0.1)
+		position.y = lerp(position.y, $RayCast3D_far.get_collision_point().y, 0.1)
