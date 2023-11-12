@@ -1,4 +1,4 @@
-extends Node3D
+extends RigidBody3D
 
 var launched = false
 
@@ -13,10 +13,15 @@ func _ready():
 
 func _launch(collider_name, velocity):
 	# var player_node = get_node_or_null("/root/Map/player")
-	# print(self.name)
-	# print(collider_name)
 	if collider_name == name and not launched:
 		launched = true
-		var rb = get_node("RigidBody3D")
-		rb.gravity_scale = 1
-		rb.apply_impulse(velocity)
+		gravity_scale = 1
+		apply_impulse(velocity)
+
+
+func _physics_process(delta: float):
+	if launched:
+		$RayCast3D.position = self.position
+		if $RayCast3D.is_colliding():
+			var coliding_with = $RayCast3D.get_collision_point().y
+			position.y = lerp(position.y, coliding_with , 0.1)

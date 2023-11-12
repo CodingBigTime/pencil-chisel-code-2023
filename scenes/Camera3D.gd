@@ -1,7 +1,8 @@
 extends Camera3D
 
 const CAMERA_DISTANCE: float = 16
-const SPEED: float = 5
+const MAX_FOV: float = 110
+const LERP_SPEED: float = 5
 
 var target_position: Vector3
 
@@ -32,5 +33,7 @@ func follow_player(delta):
 	var camera_angle = Vector2(position.x, position.z).angle()
 	rotation.y = -camera_angle + PI / 2
 
-	var diff = target_position - position
-	position = position.lerp(target_position, delta)
+	position = position.lerp(target_position, LERP_SPEED * delta)
+
+	var player_speed = $"../player".linear_velocity.length()
+	fov = min(lerpf(fov, 30 + player_speed * 2.5, 0.05), MAX_FOV)

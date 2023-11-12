@@ -42,3 +42,24 @@ static func distance_point_to_segment(
 		t = 1
 	var projection = segment_start + a * t
 	return point.distance_to(projection)
+
+
+static func clamp_vector_2d(vector: Vector2, max_magnitude: float) -> Vector2:
+	var magnitude = vector.length()
+	if magnitude > max_magnitude:
+		return vector * (max_magnitude / magnitude)
+	return vector
+
+
+static func clamp_vector_3d(vector: Vector3, max_magnitude: float) -> Vector3:
+	var magnitude = vector.length()
+	if magnitude > max_magnitude:
+		return vector * (max_magnitude / magnitude)
+	return vector
+
+
+static func align_with_y(xform: Transform3D, new_y: Vector3) -> Transform3D:
+	xform.basis.y = new_y
+	xform.basis.x = -xform.basis.z.cross(new_y)
+	xform.basis = xform.basis.orthonormalized()
+	return xform

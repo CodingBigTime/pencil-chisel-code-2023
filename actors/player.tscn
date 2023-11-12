@@ -1,19 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://cup6i73gp2txa"]
+[gd_scene load_steps=5 format=3 uid="uid://cup6i73gp2txa"]
 
 [ext_resource type="Script" path="res://actors/player.gd" id="1_fkmfk"]
-[ext_resource type="Texture2D" uid="uid://bhmammli76lac" path="res://icon.svg" id="2_knmi1"]
+[ext_resource type="PackedScene" uid="uid://dwxinhipuxcsq" path="res://assets/pingu_2.gltf" id="2_i8x48"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fbiwg"]
+friction = 0.0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2uu0y"]
-radius = 0.490345
-height = 1.89598
+radius = 0.379941
+height = 1.574
 
-[node name="Player" type="CharacterBody3D" groups=["player"]]
+[node name="Player" type="RigidBody3D" groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11478, 0)
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+physics_material_override = SubResource("PhysicsMaterial_fbiwg")
+continuous_cd = true
+max_contacts_reported = 2
+contact_monitor = true
+can_sleep = false
 script = ExtResource("1_fkmfk")
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 1.74846e-07, 0, -1.74846e-07, 1, 0, 0, 0)
-texture = ExtResource("2_knmi1")
+[node name="pingu" parent="." instance=ExtResource("2_i8x48")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, -0.15)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00617766, 0.156832, 0)
 shape = SubResource("CapsuleShape3D_2uu0y")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.325973, 0)
+light_energy = 0.1
+light_size = 0.2
+light_negative = true
+spot_range = 4.75876
+spot_angle = 17.2881
+
+[node name="RayCast3D_far" type="RayCast3D" parent="."]
+target_position = Vector3(2.08165e-12, -50, 2.08165e-12)
+
+[node name="RayCast3D_close" type="RayCast3D" parent="."]
+target_position = Vector3(2.08165e-12, -0.5, 2.08165e-12)
