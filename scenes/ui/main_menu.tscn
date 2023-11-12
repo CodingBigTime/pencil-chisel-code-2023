@@ -1,6 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://0cy7htlt00s6"]
+[gd_scene load_steps=14 format=3 uid="uid://0cy7htlt00s6"]
 
-[ext_resource type="Script" path="res://scenes/ui/MainMenu.gd" id="1_e888i"]
+[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_sdmyu"]
 [ext_resource type="Texture2D" uid="uid://cyrlccn34qbgx" path="res://assets/ui/background.png" id="2_aa2d2"]
 [ext_resource type="Texture2D" uid="uid://cvaryjoqyns3q" path="res://assets/ui/buttons/start_button_normal.png" id="3_f7byy"]
 [ext_resource type="Texture2D" uid="uid://bb44lytpdej88" path="res://assets/ui/buttons/start_button_pressed.png" id="4_tpkhw"]
@@ -13,13 +13,17 @@
 [ext_resource type="AudioStream" uid="uid://bm6bcuvl2fmgq" path="res://assets/sfx/button_press.wav" id="10_nue65"]
 [ext_resource type="AudioStream" uid="uid://clj6pfdgfrud7" path="res://assets/sfx/button_release.wav" id="11_gbt1v"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_f8bl0"]
+font_size = 32
+
 [node name="Control" type="Control"]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-script = ExtResource("1_e888i")
+scale = Vector2(0.998055, 1)
+script = ExtResource("1_sdmyu")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -66,6 +70,7 @@ text = "Pencil Chisel Code 2023"
 
 [node name="best_score_label" type="Label" parent="HomeMenu/HSplitContainer/VBoxContainer"]
 layout_mode = 2
+label_settings = SubResource("LabelSettings_f8bl0")
 script = ExtResource("9_i60lb")
 
 [node name="CenterContainer" type="CenterContainer" parent="HomeMenu/HSplitContainer"]

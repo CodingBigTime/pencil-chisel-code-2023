@@ -39,11 +39,12 @@ func boost():
 
 
 func _physics_process(delta: float):
-	if Input.is_action_just_pressed("reset"):
-		position = starting_position
-		linear_velocity = Vector3(0, 0, 0)
-		angular_velocity = Vector3(0, 0, 0)
-		rotation = Vector3(0, 0, 0)
+	if Input.is_action_just_pressed("suicide"):
+		die.emit()
+
+	# TODO: remove
+	if Input.is_action_just_pressed("score_debug"):
+		increase_score.emit(1)
 
 	var input_rotation = Input.get_action_strength("right") - Input.get_action_strength("left")
 	rotate(Vector3(0, -1, 0), input_rotation * delta * ROTATION_SPEED)

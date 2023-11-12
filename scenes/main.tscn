@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_dxlqq"]
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
 [ext_resource type="PackedScene" uid="uid://b54oqd74o7jyk" path="res://assets/map7.glb" id="4_4337f"]
-[ext_resource type="PackedScene" uid="uid://bxmjjpfslwi3x" path="res://objects/glacier.tscn" id="4_f4xd1"]
+[ext_resource type="PackedScene" uid="uid://cyhcfsvkd2wxc" path="res://objects/glacier.tscn" id="4_f4xd1"]
 [ext_resource type="PackedScene" path="res://actors/enemy.tscn" id="4_g7cr1"]
 [ext_resource type="PackedScene" uid="uid://cn6lce1nym2nc" path="res://scenes/ui/main_ui.tscn" id="5_hp1v1"]
 
