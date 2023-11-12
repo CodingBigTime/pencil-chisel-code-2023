@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://objects/spawners/instant_spawner.gd" id="13_qygkj"]
 [ext_resource type="Script" path="res://scenes/enemies.gd" id="14_3dv4x"]
 [ext_resource type="Script" path="res://scenes/glaciers.gd" id="14_7bx01"]
-[ext_resource type="PackedScene" uid="uid://diwkcvyk3e2v2" path="res://objects/boost.tscn" id="15_j0yn8"]
+[ext_resource type="Script" path="res://scenes/boosts.gd" id="15_dv5hf"]
 
 [sub_resource type="GDScript" id="GDScript_1wg7g"]
 script/source = "extends Spawner
@@ -96,7 +96,7 @@ script = SubResource("GDScript_1wg7g")
 script = ExtResource("4_b5dko")
 spawn_period = 0.1
 min_distance = 30.0
-max_distance = 60.0
+max_distance = 50.0
 height = 20.0
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -172,10 +172,19 @@ max_distance = 160.0
 
 [node name="enemies" type="Node3D" parent="."]
 script = ExtResource("14_3dv4x")
+despawn_distance = 60
 
-[node name="boost" parent="." instance=ExtResource("15_j0yn8")]
-transform = Transform3D(1, 5.76532e-10, 2.49698e-11, -2.23539e-11, 1, -1.24232e-11, 1.1314e-11, -2.96551e-10, 1, 45.4869, -13.4737, 5.33563)
+[node name="boosts" type="Node3D" parent="."]
+script = ExtResource("15_dv5hf")
+
+[node name="boost_spawner" parent="." instance=ExtResource("3_xi66a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 40, 0)
+script = ExtResource("4_b5dko")
+spawn_period = 0.2
+min_distance = 40.0
+max_distance = 160.0
 
 [connection signal="spawn" from="player/spawners/enemy_spawner" to="enemies" method="spawn_enemy"]
 [connection signal="spawn" from="tree_spawner" to="trees" method="spawn_tree"]
 [connection signal="spawn" from="glacier_spawner" to="glaciers" method="spawn_glacier"]
+[connection signal="spawn" from="boost_spawner" to="boosts" method="spawn_boost"]

@@ -1,7 +1,5 @@
 extends Node3D
 
-signal enemy_killed_signal
-
 @export var despawn_distance: int = 80
 @export var enemy_number_cap: int = 10
 
