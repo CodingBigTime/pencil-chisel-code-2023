@@ -13,6 +13,7 @@ const LAUNCH_FORCE = 3
 const ROTATION_SPEED = 4
 const MAX_VELOCITY = 100.0
 const TERMINAL_VELOCITY = 20.0
+const CONSTANT_VELOCITY = Vector3(0, 0, -2)
 
 @export var starting_boost_count: int = 0
 var starting_position: Vector3
@@ -43,7 +44,7 @@ func boost():
 func _physics_process(delta: float):
 	get_tree().call_group("enemies", "update_player_position", global_position)
 
-	if Input.is_action_just_pressed("suicide"):
+	if position.y < -70 or Input.is_action_just_pressed("suicide"):
 		die.emit()
 
 	# TODO: remove
@@ -71,10 +72,17 @@ func _physics_process(delta: float):
 			increase_score.emit(1)
 			linear_velocity *= 0.5
 
+		if body.is_in_group("enemy"):
+			die.emit()
+
 	velocity_xz = Vector2(linear_velocity.x, linear_velocity.z)
 	var velocity_xz_clamped = Trigonometry.clamp_vector_2d(velocity_xz, MAX_VELOCITY)
 	linear_velocity.x = velocity_xz_clamped.x
 	linear_velocity.z = velocity_xz_clamped.y
+
+	var forward_direction = CONSTANT_VELOCITY.rotated(Vector3(0, 1, 0), rotation.y)
+	if linear_velocity.length() < CONSTANT_VELOCITY.length():
+		apply_central_impulse(forward_direction - linear_velocity)
 
 	if $RayCast3D_far.is_colliding():
 		position.y = lerp(position.y, $RayCast3D_far.get_collision_point().y + 0.05, 0.1)

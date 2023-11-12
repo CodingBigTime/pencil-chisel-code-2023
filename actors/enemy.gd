@@ -1,6 +1,6 @@
 extends CharacterBody3D
 
-const SPEED = 20.0
+const SPEED = 5.0
 const TIME_PER_ACTION = 8000
 const DISTANCE = 400  #This is distance squared
 

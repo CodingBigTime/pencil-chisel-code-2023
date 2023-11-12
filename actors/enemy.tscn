@@ -47,7 +47,7 @@ albedo_color = Color(2.4, 1.2, 0, 0.75)
 material = SubResource("StandardMaterial3D_k5pm4")
 size = Vector3(0.2, 0.2, 0.2)
 
-[node name="Enemy" type="CharacterBody3D"]
+[node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
 floor_constant_speed = true
 script = ExtResource("1_cqyxv")
 
