@@ -64,17 +64,6 @@ func _physics_process(delta: float):
 	if Input.is_action_just_pressed("boost"):
 		boost()
 
-	# Handle collision
-	for body in get_colliding_bodies():
-		if body.is_in_group("weapon"):
-			launch_weapon.emit(body.name, linear_velocity * LAUNCH_FORCE)
-			# TODO: Remove temporary score add
-			increase_score.emit(1)
-			linear_velocity *= 0.5
-
-		if body.is_in_group("enemy"):
-			die.emit()
-
 	velocity_xz = Vector2(linear_velocity.x, linear_velocity.z)
 	var velocity_xz_clamped = Trigonometry.clamp_vector_2d(velocity_xz, MAX_VELOCITY)
 	linear_velocity.x = velocity_xz_clamped.x
@@ -94,3 +83,12 @@ func _physics_process(delta: float):
 				$pingu.global_transform, collision_normal
 			)
 			$pingu.rotation.y = 0
+
+
+func _on_body_entered(body: Node):
+	if body.is_in_group("weapon"):
+		launch_weapon.emit(body.name, linear_velocity * LAUNCH_FORCE)
+		increase_score.emit(1)
+		linear_velocity *= 0.5
+	if body.is_in_group("enemy"):
+		die.emit()

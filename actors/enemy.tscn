@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bs874u23dhorv"]
+[gd_scene load_steps=10 format=3 uid="uid://dn1acga816cwk"]
 
 [ext_resource type="Script" path="res://actors/enemy.gd" id="1_cqyxv"]
 
@@ -48,6 +48,7 @@ material = SubResource("StandardMaterial3D_k5pm4")
 size = Vector3(0.2, 0.2, 0.2)
 
 [node name="Enemy" type="CharacterBody3D" groups=["enemy"]]
+process_priority = 1
 floor_constant_speed = true
 script = ExtResource("1_cqyxv")
 
