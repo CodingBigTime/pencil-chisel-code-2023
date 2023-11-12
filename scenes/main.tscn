@@ -1,11 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dxjw1mwn4i5cu"]
+[gd_scene load_steps=16 format=3 uid="uid://2w6yakjowypx"]
 
 [ext_resource type="PackedScene" uid="uid://cup6i73gp2txa" path="res://actors/player.tscn" id="1_7ud0s"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_dxlqq"]
 [ext_resource type="Script" path="res://scenes/Camera3D.gd" id="2_nl8p7"]
 [ext_resource type="PackedScene" uid="uid://b54oqd74o7jyk" path="res://assets/map7.glb" id="4_4337f"]
 [ext_resource type="PackedScene" uid="uid://cyhcfsvkd2wxc" path="res://objects/glacier.tscn" id="4_f4xd1"]
-[ext_resource type="PackedScene" uid="uid://dn1acga816cwk" path="res://actors/enemy.tscn" id="4_g7cr1"]
+[ext_resource type="PackedScene" path="res://actors/enemy.tscn" id="4_g7cr1"]
 [ext_resource type="PackedScene" uid="uid://cn6lce1nym2nc" path="res://scenes/ui/main_ui.tscn" id="5_hp1v1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_h6sp0"]
@@ -90,7 +90,7 @@ amount = 20000
 lifetime = 3.0
 speed_scale = 0.75
 randomness = 0.71
-visibility_aabb = AABB(-20, -20, -20, 40, 40, 40)
+visibility_aabb = AABB(-100, -100, -100, 200, 200, 200)
 trail_enabled = true
 process_material = SubResource("ParticleProcessMaterial_bgh5k")
 draw_pass_1 = SubResource("RibbonTrailMesh_a8buv")
