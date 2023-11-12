@@ -50,10 +50,9 @@ func explode():
 	var explosion = ice_explosion.instantiate()
 	explosion.position = position
 	get_parent().add_child(explosion)
+	explosion.play_sound()
 	var overlapping_bodies = $Area3D.get_overlapping_bodies()
 	for body in overlapping_bodies:
-		if body.is_in_group("player"):
-			body.die.emit()
 		if body.is_in_group("enemy"):
 			body.queue_free()
 			enemy_killed.emit()

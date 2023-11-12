@@ -10,7 +10,6 @@ var player_position: Vector3 = Vector3(0, 0, 0)
 
 
 func num_enemies() -> int:
-	print(get_child_count())
 	return get_child_count()
 
 
